@@ -55,7 +55,8 @@ public class TestBase {
 	private static WebDriver initIEdgeDriver(String url) {
 		String arquitectura = ARQ.indexOf("32") >= 0 ? "32" : "64";
 		if (OS.indexOf("win") >= 0) {
-			System.setProperty("webdriver.edge.driver",CUR_DIR + "/drivers/IEdge/" + arquitectura + "/MicrosoftWebDriver.exe");
+			System.setProperty("webdriver.edge.driver",
+					CUR_DIR + "/drivers/IEdge/" + arquitectura + "/MicrosoftWebDriver.exe");
 		} else {
 			throw new RuntimeException("El navagador no es soportado");
 		}
@@ -67,7 +68,8 @@ public class TestBase {
 	private static WebDriver initIExplorerDriver(String url) {
 		String arquitectura = ARQ.indexOf("32") >= 0 ? "32" : "64";
 		if (OS.indexOf("win") >= 0) {
-			System.setProperty("webdriver.ie.driver",CUR_DIR + "/drivers/IExplorer/" + arquitectura + "/IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver",
+					CUR_DIR + "/drivers/IExplorer/" + arquitectura + "/IEDriverServer.exe");
 		} else {
 			throw new RuntimeException("El navagador no es soportado");
 		}
@@ -76,7 +78,7 @@ public class TestBase {
 		options.setCapability("unexpectedAlertBehaviour", "accept");
 		options.setCapability("ignoreProtectedModeSettings", true);
 		options.setCapability("enablePersistentHover", true);
-		
+
 		driver = new InternetExplorerDriver(options);
 		return driver;
 	}
@@ -84,9 +86,11 @@ public class TestBase {
 	private static WebDriver initChromeDriver(String url) {
 		String arquitectura = ARQ.indexOf("32") >= 0 ? "32" : "64";
 		if (OS.indexOf("win") >= 0) {
-			System.setProperty("webdriver.chrome.driver",CUR_DIR + "/drivers/Chrome/windows/" + arquitectura + "/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",
+					CUR_DIR + "/drivers/Chrome/windows/" + arquitectura + "/chromedriver.exe");
 		} else if (OS.indexOf("linux") >= 0) {
-			System.setProperty("webdriver.chrome.driver",CUR_DIR + "/drivers/Chrome/linux/" + arquitectura + "/chromedriver");
+			System.setProperty("webdriver.chrome.driver",
+					CUR_DIR + "/drivers/Chrome/linux/" + arquitectura + "/chromedriver");
 		} else if (OS.indexOf("mac") >= 0) {
 			System.setProperty("webdriver.chrome.driver", CUR_DIR + "/drivers/Chrome/mac/chromedriver");
 		}
@@ -104,9 +108,11 @@ public class TestBase {
 	private static WebDriver initFirefoxDriver(String url) {
 		String arquitectura = ARQ.indexOf("32") >= 0 ? "32" : "64";
 		if (OS.indexOf("win") >= 0) {
-			System.setProperty("webdriver.gecko.driver",CUR_DIR + "/drivers/GeckoDriver/windows/" + arquitectura + "/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver",
+					CUR_DIR + "/drivers/GeckoDriver/windows/" + arquitectura + "/geckodriver.exe");
 		} else if (OS.indexOf("linux") >= 0) {
-			System.setProperty("webdriver.gecko.driver",CUR_DIR + "/drivers/GeckoDriver/linux/" + arquitectura + "/geckodriver");
+			System.setProperty("webdriver.gecko.driver",
+					CUR_DIR + "/drivers/GeckoDriver/linux/" + arquitectura + "/geckodriver");
 		} else if (OS.indexOf("mac") >= 0) {
 			System.setProperty("webdriver.gecko.driver", CUR_DIR + "/drivers/GeckoDriver/mac/geckodriver");
 		}
@@ -123,7 +129,6 @@ public class TestBase {
 		}
 		return true;
 	}
-	
 
 	@BeforeClass
 	public void initializeTestBaseSetup() {
@@ -137,7 +142,7 @@ public class TestBase {
 	}
 
 	@AfterClass
-	public void tearDown() {
+	public void tearDown() throws Exception {
 		driver.quit();
 	}
 

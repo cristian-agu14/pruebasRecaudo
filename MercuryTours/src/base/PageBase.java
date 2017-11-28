@@ -3,6 +3,7 @@ package base;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,6 +26,10 @@ public class PageBase {
 		this.pageTitle = pageTitle;
 		//Inicializar los WebElements
 		PageFactory.initElements(driver, this);
+	}
+
+	public PageBase() {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -189,4 +194,35 @@ public class PageBase {
 		}
 		return result;
 	}
+
+	/**
+	 * Metodo para esperar un tiempo
+	 * @param segundos
+	 */
+	public void esperar (int segundos) {
+		try {
+		Thread.sleep (segundos*1000);
+		} catch (Exception e) {
+		// Mensaje en caso de que falle
+		}
+		}
+	
+	/**
+	 * Metodo para dar una alerta de si un componente esta presente 
+	 * @return
+	 */
+	public boolean isAlertPresent() 
+	{ 
+	    try 
+	    { 
+	        driver.switchTo().alert(); 
+	        return true; 
+	    }   // try 
+	    catch (NoAlertPresentException Ex) 
+	    { 
+	        return false; 
+	    }   // catch 
+	}   // isAlertPresent()
+
+
 }
