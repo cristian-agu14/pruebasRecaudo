@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="test.sellos.humedos.SelloHumedo">
+      <class name="test.usuarios.Usuarios">
         <methods>
-          <include name="asignarSelloRepetido"/>
+          <include name="crearUsuario"/>
           <include name="initializeTestBaseSetup"/>
+          <include name="crearUsuarioIdRepetido"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- test.sellos.humedos.SelloHumedo -->
+      </class> <!-- test.usuarios.Usuarios -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

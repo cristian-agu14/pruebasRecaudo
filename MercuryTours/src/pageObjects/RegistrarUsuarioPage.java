@@ -24,7 +24,7 @@ public class RegistrarUsuarioPage extends PageBase {
 	// WebElements
 
 	/**
-	 * Área Contact Information
+	 * Area Contact Information
 	 */
 	@FindBy(how = How.NAME, using = "firstName")
 	private WebElement inputFirstName;
@@ -36,7 +36,7 @@ public class RegistrarUsuarioPage extends PageBase {
 	private WebElement inputImail;
 
 	/**
-	 * Área Mailing Information
+	 * Area Mailing Information
 	 */
 	@FindBy(how = How.NAME, using = "")
 	private WebElement inputAddress1;
@@ -52,7 +52,7 @@ public class RegistrarUsuarioPage extends PageBase {
 	private WebElement comboCountry;
 
 	/**
-	 * Área de User Information
+	 * Area de User Information
 	 */
 	@FindBy(how = How.ID_OR_NAME, using = "")
 	private WebElement inputUserName;

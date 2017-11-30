@@ -95,6 +95,10 @@ public class SellosHumedos extends PageBase {
 
 	}
 	
+//	public boolean verificarMensajes() {
+//		isElementPresentAndDisplay(element)
+//	}
+	
 	/**
 	 * Mensaje que sale cuando ya se ha asignado un sello humedo con ese numero
 	 */

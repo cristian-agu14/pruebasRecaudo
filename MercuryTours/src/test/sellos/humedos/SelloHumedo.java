@@ -13,8 +13,8 @@ public class SelloHumedo extends TestBase {
 
 	private String pageFindFlight = "Find a Flight: Edeq";
 	static ExcelUtils exelDatosBancos;
-	String numeroSello="2";
-	String cajero= "2";
+	String numeroSello = "2";
+	String cajero = "2";
 
 	/**
 	 * Metodo que prueba que se asignen correctamente los sellos humedos a un cajero
@@ -22,33 +22,48 @@ public class SelloHumedo extends TestBase {
 	@Test
 	public void asignarSello() {
 		try {
-			
-			sellosHumedos= new SellosHumedos(driver, pageFindFlight);
+
+			sellosHumedos = new SellosHumedos(driver, pageFindFlight);
 			Assert.assertTrue(sellosHumedos.crearSellohumedo(numeroSello, cajero));
-			
+
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Metodo que prueba que no se ingresen sellos repetidos
 	 */
 	@Test
 	private void asignarSelloRepetido() {
 		try {
-			
-			sellosHumedos= new SellosHumedos(driver, pageFindFlight);
+
+			sellosHumedos = new SellosHumedos(driver, pageFindFlight);
 			sellosHumedos.ingresarAgregarSello(numeroSello, cajero);
-			Assert.assertTrue(sellosHumedos.isElementPresentAndDisplay(sellosHumedos.getMsjErrorSelloHumedo()));
-			
+			Assert.assertTrue(sellosHumedos.isTextPresent(sellosHumedos.getMsjErrorSelloHumedo().getText()));
+
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
 			e.printStackTrace();
 		}
 	}
-		
-	
+
+	/**
+	 * Metodo que prueba que no se le asignen mas de un sello humedo a un mismo cajero
+	 */
+	@Test
+	private void asignarDobleSelloCajero() {
+		try {
+
+			sellosHumedos = new SellosHumedos(driver, pageFindFlight);
+			sellosHumedos.ingresarAgregarSello(numeroSello, cajero);
+			Assert.assertTrue(sellosHumedos.isTextPresent(sellosHumedos.getMsjErrorCajeroconSellohumedo().getText()));
+
+		} catch (Exception e) {
+			Assert.fail(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 
 }
