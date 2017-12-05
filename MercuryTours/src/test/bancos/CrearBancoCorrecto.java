@@ -19,7 +19,7 @@ public class CrearBancoCorrecto extends TestBase{
 	
 	@Test
 	public void crearBanco() {
-		int bancoExcel=3;//indice de las colomnas con los nombres en excel
+		int bancoExcel=4;//indice de las colomnas con los nombres en excel
 		try {
 			
 			exelDatosBancos= new ExcelUtils("datosBancos.xlsx",ExcelType.XLSX);

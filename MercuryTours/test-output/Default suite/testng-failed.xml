@@ -3,14 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="test.usuarios.Usuarios">
+      <class name="test.cuenta.bancaria.CrearCuenta">
         <methods>
-          <include name="crearUsuario"/>
           <include name="initializeTestBaseSetup"/>
-          <include name="crearUsuarioIdRepetido"/>
+          <include name="crearCuenta"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- test.usuarios.Usuarios -->
+      </class> <!-- test.cuenta.bancaria.CrearCuenta -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

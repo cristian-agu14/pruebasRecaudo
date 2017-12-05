@@ -24,7 +24,7 @@ public class PageBase {
 	public PageBase(WebDriver driver, String pageTitle) {
 		this.driver = driver;
 		this.pageTitle = pageTitle;
-		//Inicializar los WebElements
+		// Inicializar los WebElements
 		PageFactory.initElements(driver, this);
 	}
 
@@ -65,7 +65,7 @@ public class PageBase {
 	}
 
 	/**
-	 * Hace clic sobre el elemento que recibe por parámetro
+	 * Hace click sobre el elemento que recibe por parámetro
 	 * 
 	 * @param element
 	 * @return
@@ -81,31 +81,33 @@ public class PageBase {
 		}
 		return result;
 	}
-	
+
 	public boolean clickRadioButtonByName(List<WebElement> elements, String value) {
 		boolean result = true;
-		for(int i=0; i<elements.size();i++){
-			String opciones=elements.get(i).getAttribute("value");
-			if(opciones.equalsIgnoreCase(value)){
+		for (int i = 0; i < elements.size(); i++) {
+			String opciones = elements.get(i).getAttribute("value");
+			if (opciones.equalsIgnoreCase(value)) {
 				elements.get(i).click();
-				result=true;
+				result = true;
 				break;
 			}
 		}
 		return result;
 	}
+
 	public boolean clickRadioButtonByNameContains(List<WebElement> elements, String value) {
 		boolean result = true;
-		for(int i=0; i<elements.size();i++){
-			String opciones=elements.get(i).getAttribute("value");
-			if(opciones.contains(value)){
+		for (int i = 0; i < elements.size(); i++) {
+			String opciones = elements.get(i).getAttribute("value");
+			if (opciones.contains(value)) {
 				elements.get(i).click();
-				result=true;
+				result = true;
 				break;
 			}
 		}
 		return result;
 	}
+
 	/**
 	 * Verifica si el texto esta presente en la página
 	 */
@@ -123,73 +125,78 @@ public class PageBase {
 			return false;
 		}
 	}
+
 	/**
 	 * Selecciona una opción del combo box por su texto
+	 * 
 	 * @param element
 	 * @param text
 	 * @return
 	 */
-	public boolean selectDropdownVisibleText(WebElement element, String text){
+	public boolean selectDropdownVisibleText(WebElement element, String text) {
 		boolean result = true;
 		Select listBox;
-		if(isElementPresentAndDisplay(element)){
-			listBox= new Select(element);
+		if (isElementPresentAndDisplay(element)) {
+			listBox = new Select(element);
 			listBox.selectByVisibleText(text);
-		}else {
+		} else {
 			result = false;
 		}
 		return result;
 	}
+
 	/**
 	 * Selecciona una opción del combo box por su valor
+	 * 
 	 * @param element
 	 * @param value
 	 * @return
 	 */
-	public boolean selectDropdownValue(WebElement element, String value){
+	public boolean selectDropdownValue(WebElement element, String value) {
 		boolean result = true;
 		Select listBox;
-		if(isElementPresentAndDisplay(element)){
-			listBox= new Select(element);
+		if (isElementPresentAndDisplay(element)) {
+			listBox = new Select(element);
 			listBox.selectByValue(value);
-		}else {
+		} else {
 			result = false;
 		}
 		return result;
 	}
-	
+
 	/**
-	 * Método que obtiene el texto de un elemento y verifica que sea igual al esperado
+	 * Método que obtiene el texto de un elemento y verifica que sea igual al
+	 * esperado
+	 * 
 	 * @param element
 	 * @param text
 	 * @return
 	 */
-	public boolean getTextElement(WebElement element, String text){
+	public boolean getTextElement(WebElement element, String text) {
 		return element.getText().equalsIgnoreCase(text);
 	}
-	
+
 	/**
-	 * Selecciona una opción del combo box por su valor, 
-	 * este método es para acceder a opciones cuando se manejan multiples capas en el frontend
+	 * Selecciona una opción del combo box por su valor, este método es para
+	 * acceder a opciones cuando se manejan multiples capas en el frontend
+	 * 
 	 * @param combo
 	 * @param comboOptions
 	 * @param text
 	 * @return
 	 */
-	public boolean selectDropdownAjax(WebElement combo, WebElement comboOptions, String text){
+	public boolean selectDropdownAjax(WebElement combo, WebElement comboOptions, String text) {
 		boolean result = true;
-		if(isElementPresentAndDisplay(combo)){
-			 List<WebElement> options=comboOptions.findElements(By.tagName("li"));
-			    
-			    for (WebElement option : options)
-			    {
-			        if (option.getText().equals(text))
-			        {
-			            option.click(); // click the desired option
-			            break;
-			        }
-			    }
-		}else {
+		if (isElementPresentAndDisplay(combo)) {
+			List<WebElement> options = comboOptions.findElements(By.tagName("li"));
+
+			for (WebElement option : options) {
+				if (option.getText().equals(text)) {
+					option.click(); // click the desired option
+					break;
+				}
+			}
+		} else {
 			result = false;
 		}
 		return result;
@@ -197,32 +204,30 @@ public class PageBase {
 
 	/**
 	 * Metodo para esperar un tiempo
+	 * 
 	 * @param segundos
 	 */
-	public void esperar (int segundos) {
+	public void esperar(int segundos) {
 		try {
-		Thread.sleep (segundos*1000);
+			Thread.sleep(segundos * 1000);
 		} catch (Exception e) {
-		// Mensaje en caso de que falle
+			// Mensaje en caso de que falle
 		}
-		}
-	
+	}
+
 	/**
-	 * Metodo para dar una alerta de si un componente esta presente 
+	 * Metodo para dar una alerta de si un componente esta presente
+	 * 
 	 * @return
 	 */
-	public boolean isAlertPresent() 
-	{ 
-	    try 
-	    { 
-	        driver.switchTo().alert(); 
-	        return true; 
-	    }   // try 
-	    catch (NoAlertPresentException Ex) 
-	    { 
-	        return false; 
-	    }   // catch 
-	}   // isAlertPresent()
-
+	public boolean isAlertPresent() {
+		try {
+			driver.switchTo().alert();
+			return true;
+		} // try
+		catch (NoAlertPresentException Ex) {
+			return false;
+		} // catch
+	} // isAlertPresent()
 
 }

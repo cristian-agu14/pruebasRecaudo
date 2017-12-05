@@ -13,14 +13,54 @@ public class CuentasBancarias extends PageBase {
 		super(driver, pageTitle);
 	}
 
-	public boolean CrearCuenta(String nombre, String numero, String banco) {
+	public boolean crearCuenta(String nombre, String numeroCuenta, boolean tipo, String banco, String cuentaContable) {
 		clickButtonLink(btnAdministracion);
+		esperar(1);
 		clickButtonLink(opcionCuentasBancarias);
-		clickButtonLink(btnCrearnuevo);
+		esperar(1);
+		clickButtonLink(pestañaCuentasbancarias);
 		esperar(1);
 		sendText(cajaTextoNombreCuenta, nombre);
-		sendText(numeroCuenta, numero);
+		sendText(cajatextoNumeroCuenta, numeroCuenta);
+		sendText(cajaTextoCuentaContable, cuentaContable);
+		seleccionarTipocuenta(tipo);
+		esperar(1);
+		clickButtonLink(btnGuardarCuentaBancaria);	
+		esperar(1);
+		return buscarCuentaBancaria(numeroCuenta);
+	}
 
+	/**
+	 * Metodo que selecciona el tipo de cuenta que se va a ingresar
+	 * 
+	 * @param tipo
+	 *            es true si es cuenta contable
+	 * @param tipo
+	 *            es false si es una cuenta de ahorros
+	 */
+	public void seleccionarTipocuenta(boolean tipo) {
+		if (tipo == true) {
+			clickButtonLink(radioButtonCorriente);
+		} else {
+			clickButtonLink(radioButtonAhorro);
+		}
+	}
+	
+	/**
+	 * Metodo que busca cuentas bancarias por el numero de cuentas 
+	 * @param nuemroCuenta 
+	 * @return true si el banco esta registrado
+	 * @return false si el banco NO esta registrado
+	 */
+	public boolean buscarCuentaBancaria(String nuemroCuenta) {
+		sendText(cajaTextoBuscador, nuemroCuenta);
+		clickButtonLink(btnBuscador);
+		esperar(1);
+		if(nuemroCuenta.equals(textoPantallaNumeroCuenta.getText())) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	/**
@@ -32,14 +72,8 @@ public class CuentasBancarias extends PageBase {
 	/**
 	 * Opcion cuentas bancarias
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[1]/div[1]/div/ul/li[5]/a")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[1]/div[1]/div/ul/li[2]/a")
 	private WebElement opcionCuentasBancarias;
-
-	/**
-	 * Boton para ir a la ventana modan donde se crean las cuentas bancarias nuevas
-	 */
-	@FindBy(how = How.ID, using = "34")
-	private WebElement btnCrearnuevo;
 
 	/**
 	 * Caja de texto en donde se ingresa el nombre de la cuenta bancaria
@@ -56,16 +90,77 @@ public class CuentasBancarias extends PageBase {
 	/**
 	 * ComboBox para seleccionar el banco al cual esta asociado la cuenta
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[3]/div/div/div/form/div/div[3]/div/select")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[2]/fieldset/div/form/div/div[5]/div/div/select")
 	private WebElement comboBoxBancos;
 
 	/**
 	 * Boton para crear la cuenta bancaria
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[3]/div/div/div/form/div/div[4]/div/input")
-	private WebElement btnCrear;
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[2]/fieldset/div/form/div/div[6]/div/div/input")
+	private WebElement btnGuardarCuentaBancaria;
 
-	//////////////////////////////////Get y Set///////////////////////////////////////////
+	/**
+	 * Radio Button que selecciona la cuenta como cuenta de Ahorros
+	 */
+	@FindBy(how = How.ID, using = "Ahorros")
+	private WebElement radioButtonAhorro;
+
+	/**
+	 * Radio Button que selecciona la cuenta como cuenta Corriente
+	 */
+	@FindBy(how = How.ID, using = "Corriente")
+	private WebElement radioButtonCorriente;
+
+	/**
+	 * Caja de texto en donde se ingresa el nombre de la cuenta bancaria
+	 */
+	@FindBy(how = How.ID, using = "cuentaban_NOMBRE")
+	private WebElement cajaTextoNombre;
+
+	/**
+	 * Caja de texxto en donde se ingresa el numero de la cuenta
+	 */
+	@FindBy(how = How.ID, using = "cuentaban_NUMERO_CUENTA")
+	private WebElement cajatextoNumeroCuenta;
+
+	/**
+	 * Caja de texto en donde se ingresa el numero de la cuenta contable
+	 */
+	@FindBy(how = How.ID, using = "cuentaban_CTA_CONTABLE")
+	private WebElement cajaTextoCuentaContable;
+	
+	/**
+	 * Boton para guardar los datos de la cuenta bancaria nueva
+	 */
+	@FindBy(how = How.XPATH, using ="//html/body/div[2]/div[2]/div/div[2]/fieldset/div/form/div/div[6]/div/div/input")
+	private WebElement grabarCuentaBancaria;
+	
+	/**
+	 * Pestaña en donde se encuentra todo  lo de cuenta bancaria
+	 */
+	@FindBy(how =  How.XPATH, using = "//html/body/div[2]/div[2]/div/ul/li[5]/a")
+	private WebElement pestañaCuentasbancarias;
+	
+	/**
+	 * Texto del numero de la cuenta bancaria que sale en pantalla 
+	 */
+	@FindBy(how = How.XPATH, using ="//html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/table/tbody/tr/td[2]")
+	private WebElement textoPantallaNumeroCuenta;
+	
+	/**
+	 * Caja de texto del buscador
+	 */
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/div/div/form/div/div[1]/div/input")
+	private WebElement cajaTextoBuscador;
+	
+	/**
+	 * Boton del buscador
+	 */
+	@FindBy(how = How.ID, using ="vhwaR")
+	private WebElement btnBuscador;
+
+	////////////////////////////////// Get y
+	////////////////////////////////// Set///////////////////////////////////////////
 
 	public WebElement getBtnAdministracion() {
 		return btnAdministracion;
@@ -81,14 +176,6 @@ public class CuentasBancarias extends PageBase {
 
 	public void setOpcionCuentasBancarias(WebElement opcionCuentasBancarias) {
 		this.opcionCuentasBancarias = opcionCuentasBancarias;
-	}
-
-	public WebElement getBtnCrearnuevo() {
-		return btnCrearnuevo;
-	}
-
-	public void setBtnCrearnuevo(WebElement btnCrearnuevo) {
-		this.btnCrearnuevo = btnCrearnuevo;
 	}
 
 	public WebElement getCajaTextoNombreCuenta() {
@@ -113,14 +200,6 @@ public class CuentasBancarias extends PageBase {
 
 	public void setComboBoxBancos(WebElement comboBoxBancos) {
 		this.comboBoxBancos = comboBoxBancos;
-	}
-
-	public WebElement getBtnCrear() {
-		return btnCrear;
-	}
-
-	public void setBtnCrear(WebElement btnCrear) {
-		this.btnCrear = btnCrear;
 	}
 
 }

@@ -28,7 +28,7 @@ public class UsuariosCrear extends PageBase {
 
 		clickButtonLink(btnAdministracion);
 		clickButtonLink(btnUsuarios);
-		clickButtonLink(btnCrearUsuario);
+		//clickButtonLink(btnCrearUsuario);
 		esperar(1);
 		String id = String.valueOf(identificacion);
 		// esperar(1);
@@ -130,7 +130,7 @@ public class UsuariosCrear extends PageBase {
 	 * ComboBox donde se encuentran todos los perfiles que se pueden elegir para un
 	 * usuario
 	 */
-	@FindBy(how = How.XPATH, using = "/html/body/div[3]/div/div/div/form/div/div[3]/div/select")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[2]/fieldset/div/form/div/div[3]/div/div/select")
 	private WebElement comboBoxPerfil;
 
 	/**
@@ -178,7 +178,7 @@ public class UsuariosCrear extends PageBase {
 	/**
 	 * Caja de texto buscados
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/form/div/div[1]/div/input")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[2]/fieldset/div/form/div/div[6]/div/div/input")
 	private WebElement cajaTextoBuscador;
 
 	/**
@@ -196,7 +196,11 @@ public class UsuariosCrear extends PageBase {
 	public WebElement getCajaTextoEmail() {
 		return cajaTextoEmail;
 	}
-
+  
+	/**
+	 *  
+	 * @param cajaTextoEmail
+	 */
 	public void setCajaTextoEmail(WebElement cajaTextoEmail) {
 		this.cajaTextoEmail = cajaTextoEmail;
 	}

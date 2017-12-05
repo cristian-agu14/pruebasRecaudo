@@ -82,10 +82,10 @@ public class Usuarios extends TestBase {
 			tipoPerfil = Integer.parseInt(perfil);
 
 			usuariosCrear.crearUsuario(id, nombre, tipoPerfil, nombreUsuario, email);
-			System.out.println((driver.findElement(By.xpath("//html/body/div[3]/div/div/div/form/div/div[2]/div/span")))
+			System.out.println((driver.findElement(By.xpath("//html/body/div[2]/div[2]/div/div[2]/fieldset/div/div/form/div/div[2]/div/div/span")))
 					.getText());
 			Assert.assertEquals("Esta identificación ya está registrada",
-					(driver.findElement(By.xpath("//html/body/div[3]/div/div/div/form/div/div[2]/div/span")))
+					(driver.findElement(By.xpath("//html/body/div[2]/div[2]/div/div[2]/fieldset/div/div/form/div/div[2]/div/div/span")))
 							.getText());
 
 		} catch (Exception e) {

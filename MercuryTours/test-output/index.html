@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\Windows left\AppData\Local\Temp\testng-eclipse--494362747\testng-customsuite.xml</span>
+                    <span>C:\Users\Windows left\AppData\Local\Temp\testng-eclipse--1066232017\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 2 failed,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -102,29 +102,10 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.usuarios.Usuarios" hash-for-method="crearUsuario">crearUsuario</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.usuarios.Usuarios" hash-for-method="crearUsuarioIdRepetido">crearUsuarioIdRepetido</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.cuenta.bancaria.CrearCuenta" hash-for-method="crearCuenta">crearCuenta</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
-                  </li>
-                  <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content passed suite-Default_suite">
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.usuarios.Usuarios" hash-for-method="crearUsuarionNikrepetido">crearUsuarionNikrepetido</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -139,66 +120,24 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">test.usuarios.Usuarios</span>
+              <span class="class-name">test.cuenta.bancaria.CrearCuenta</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="crearUsuario">
-                  </a> <!-- crearUsuario -->
-                  <span class="method-name">crearUsuario</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [ENRIQUE MARIN] but found [DANIEL FLORES]
-	at org.testng.Assert.fail(Assert.java:93)
-	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:134)
-	at org.testng.Assert.assertEquals(Assert.java:115)
-	at org.testng.Assert.assertEquals(Assert.java:189)
-	at org.testng.Assert.assertEquals(Assert.java:199)
-	at test.usuarios.Usuarios.crearUsuario(Usuarios.java:50)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="crearUsuarioIdRepetido">
-                  </a> <!-- crearUsuarioIdRepetido -->
-                  <span class="method-name">crearUsuarioIdRepetido</span>
-                  <div class="stack-trace">java.lang.AssertionError: Unable to locate element: //html/body/div[3]/div/div/div/form/div/div[2]/div/span
+                  <a name="crearCuenta">
+                  </a> <!-- crearCuenta -->
+                  <span class="method-name">crearCuenta</span>
+                  <div class="stack-trace">java.lang.AssertionError: Unable to locate element: //html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/table/tbody/tr/td[2]
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.6.0&apos;, revision: &apos;6fbf3ec767&apos;, time: &apos;2017-09-27T15:28:36.4Z&apos;
-System info: host: &apos;DESKTOP-LV7M220&apos;, ip: &apos;192.168.1.163&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_151&apos;
+System info: host: &apos;DESKTOP-LV7M220&apos;, ip: &apos;192.168.1.153&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_151&apos;
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Users\WINDOW~1\AppData\Local\Temp\rust_mozprofile.51eRqBokGuKz, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=XP, specificationLevel=0, moz:accessibilityChecks=false, acceptInsecureCerts=true, browserVersion=54.0, platformVersion=10.0, moz:processID=11712, browserName=firefox, javascriptEnabled=true, platformName=XP}]
-Session ID: 03a99dec-0dce-45be-ab5c-d61a8edf4c74
-*** Element info: {Using=xpath, value=//html/body/div[3]/div/div/div/form/div/div[2]/div/span}
+Capabilities [{moz:profile=C:\Users\WINDOW~1\AppData\Local\Temp\rust_mozprofile.a5qZRmMGhcI6, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=XP, specificationLevel=0, moz:accessibilityChecks=false, acceptInsecureCerts=true, browserVersion=54.0, platformVersion=10.0, moz:processID=14800, browserName=firefox, javascriptEnabled=true, platformName=XP}]
+Session ID: 244eaa90-e94e-47c3-b019-28470c0d7e60
+*** Element info: {Using=xpath, value=//html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/table/tbody/tr/td[2]}
 	at org.testng.Assert.fail(Assert.java:93)
-	at test.usuarios.Usuarios.crearUsuarioIdRepetido(Usuarios.java:93)
+	at test.cuenta.bancaria.CrearCuenta.crearCuenta(CrearCuenta.java:46)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -230,25 +169,10 @@ Session ID: 03a99dec-0dce-45be-ab5c-d61a8edf4c74
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-failed -->
-          <div class="suite-Default_suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">test.usuarios.Usuarios</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="crearUsuarionNikrepetido">
-                  </a> <!-- crearUsuarionNikrepetido -->
-                  <span class="method-name">crearUsuarionNikrepetido</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Windows left\AppData\Local\Temp\testng-eclipse--494362747\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Windows left\AppData\Local\Temp\testng-eclipse--1066232017\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -257,7 +181,7 @@ Session ID: 03a99dec-0dce-45be-ab5c-d61a8edf4c74
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;test.usuarios.Usuarios&quot;/&gt;
+      &lt;class name=&quot;test.cuenta.bancaria.CrearCuenta&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -297,24 +221,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'crearUsuarioIdRepetido')
-data.setCell(0, 2, 'test.usuarios.Usuarios')
-data.setCell(0, 3, 69775);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'crearUsuario')
-data.setCell(1, 2, 'test.usuarios.Usuarios')
-data.setCell(1, 3, 14065);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'crearUsuarionNikrepetido')
-data.setCell(2, 2, 'test.usuarios.Usuarios')
-data.setCell(2, 3, 7771);
+data.setCell(0, 1, 'crearCuenta')
+data.setCell(0, 2, 'test.cuenta.bancaria.CrearCuenta')
+data.setCell(0, 3, 35859);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 35 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -340,7 +256,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">test.usuarios.Usuarios</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">test.cuenta.bancaria.CrearCuenta</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">initializeTestBaseSetup</span>
                 <span class="method-start">0 ms</span>
@@ -348,22 +264,12 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">crearUsuario</span>
-                <span class="method-start">26915 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">crearUsuarioIdRepetido</span>
-                <span class="method-start">40982 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">crearUsuarionNikrepetido</span>
-                <span class="method-start">110760 ms</span>
+                <span class="method-name">crearCuenta</span>
+                <span class="method-start">7206 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">118532 ms</span>
+                <span class="method-start">43069 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
