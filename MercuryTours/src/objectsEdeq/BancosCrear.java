@@ -9,10 +9,12 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.PageBase;
+import test.autebtificacion.edeq.LoginEdeqCorrecto;
 
 public class BancosCrear extends PageBase {
 
 	private BancosCrearVentana2 bancosCrearVentana2;
+	private LoginEdeqCorrecto login= new LoginEdeqCorrecto();
 
 	public BancosCrear(WebDriver driver, String pageTitle) {
 		super(driver, pageTitle);
@@ -26,7 +28,9 @@ public class BancosCrear extends PageBase {
 	 *            nombre del banco que le va a ingresar
 	 * @throws InterruptedException
 	 */
-	public void crearBancos(String nombreBanco) throws InterruptedException {
+	public boolean crearBancos(String nombreBanco, String codigo) throws InterruptedException {
+		login.loginCorrecto();
+		esperar(2);
 		clickButtonLink(btnAdministracion);
 		clickButtonLink(btnOpcionBancos);
 		//clickButtonLink(btnCrearNuevoBanco);
@@ -34,16 +38,19 @@ public class BancosCrear extends PageBase {
 		driver.findElement(By.id("NOMBRE")).clear();
 
 		driver.findElement(By.id("NOMBRE")).sendKeys(nombreBanco);
+		cajaTextoCodigo.sendKeys(codigo);
 		clickButtonLink(btnGuardar);
+		esperar(1);
+		return(isElementPresentAndDisplay(mensajeConfirmacion));
 		//clickButtonLink(btnCrear);
 		//driver.findElement(By.xpath("//input[@value='Guardar']")).click();
-		esperar(3);
+		//esperar(3);
 
-		cajatextobuscador.click();
-		cajatextobuscador.sendKeys(nombreBanco);
-		cajaTextoNombre.sendKeys(nombreBanco);
-		clickButtonLink(btnBuscar);
-		esperar(3);
+//		cajatextobuscador.click();
+//		cajatextobuscador.sendKeys(nombreBanco);
+//		cajaTextoNombre.sendKeys(nombreBanco);
+//		clickButtonLink(btnBuscar);
+//		esperar(3);
 
 		// sendText(cajaTextoNombre, nombreBanco);
 		// clickButtonLink(btnCrear);
@@ -126,11 +133,11 @@ public class BancosCrear extends PageBase {
 	private WebDriverWait wait;
 
 	// Boton de administrador
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[1]/div[1]/div/a[1]")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[1]/div/img")
 	private WebElement btnAdministracion;
 
 	// Boton de administrador
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[1]/div[1]/div/ul/li[2]/a")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[1]/p[3]/a")
 	private WebElement btnOpcionBancos;
 
 	// Boton para crear un nuevo banco
@@ -169,10 +176,25 @@ public class BancosCrear extends PageBase {
 	private WebElement textoSoloLetras;
 	
 	/**
+	 *Mensaje de notificacion 
+	 */
+	@FindBy(how =  How.CLASS_NAME, using = "notificacion")
+	private WebElement mensajeConfirmacion;
+	
+
+	
+	
+	/**
 	 * Boton para guardar el nuevo banco
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[2]/fieldset/div/form/div/div[2]/div/input")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[2]/fieldset/div/form/div/div[2]/div/div/input")
 	private WebElement btnGuardar;
+	
+	/**
+	 * Caja de texto para ingresar el codigo del banco
+	 */
+	@FindBy(how = How.ID, using = "CODIGO")
+	private WebElement cajaTextoCodigo; 
 
 	/**
 	 * geters and seters

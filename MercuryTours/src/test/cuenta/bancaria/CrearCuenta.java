@@ -21,6 +21,7 @@ public class CrearCuenta extends TestBase {
 	private String cuentaContable = "";
 	private String tipoCuenta = "";
 	private String banco = "";
+	int indiceCuenta=4;
 
 	/**
 	 * metodo que prueba la accion de crear cuentas bancarias
@@ -31,11 +32,11 @@ public class CrearCuenta extends TestBase {
 			cuentasBancarias = new CuentasBancarias(driver, pageFindFlight);
 			exelDatosCuentas = new ExcelUtils("CuentasBancarias.xlsx", ExcelType.XLSX);
 
-			nombreCuenta = exelDatosCuentas.getCellData(1, 1);
-			banco = exelDatosCuentas.getCellData(2, 1);
-			tipoCuenta = exelDatosCuentas.getCellData(3, 1);
-			numeroCuenta = exelDatosCuentas.getCellData(4, 1);
-			cuentaContable = exelDatosCuentas.getCellData(5, 1);
+			nombreCuenta = exelDatosCuentas.getCellData(1, indiceCuenta);
+			banco = exelDatosCuentas.getCellData(2, indiceCuenta);
+			tipoCuenta = exelDatosCuentas.getCellData(3, indiceCuenta);
+			numeroCuenta = exelDatosCuentas.getCellData(4, indiceCuenta);
+			cuentaContable = exelDatosCuentas.getCellData(5, indiceCuenta);
 
 			// boolean aux =
 
@@ -53,7 +54,7 @@ public class CrearCuenta extends TestBase {
 	 * Metodo que selecciona el tipo de cuenta
 	 * 
 	 * @param tipoCuenta2
-	 *            nombre del tipo de la cuenta }
+	 *            nombre del tipo de la cuenta 
 	 * @return true si es una cuenta corriente
 	 * @return false si es una cuenta de ahorros
 	 */

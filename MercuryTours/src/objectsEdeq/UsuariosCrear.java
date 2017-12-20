@@ -1,5 +1,6 @@
 package objectsEdeq;
 
+import org.apache.poi.hssf.record.PageBreakRecord.Break;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,9 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import base.PageBase;
+import test.autebtificacion.edeq.LoginEdeqCorrecto;
 
 public class UsuariosCrear extends PageBase {
-
+	
+	private LoginEdeqCorrecto login= new LoginEdeqCorrecto();
+	
 	public UsuariosCrear(WebDriver driver, String pageTitle) {
 		super(driver, pageTitle);
 		// TODO Auto-generated constructor stub
@@ -26,9 +30,13 @@ public class UsuariosCrear extends PageBase {
 	 */
 	public void crearUsuario(String identificacion, String nombre, int perfil, String nombreUsuario, String email) {
 
+		login.loginCorrecto();
+		esperar(1);
+		
 		clickButtonLink(btnAdministracion);
 		clickButtonLink(btnUsuarios);
-		//clickButtonLink(btnCrearUsuario);
+		clickButtonLink(pestanaUsuarios);
+		// clickButtonLink(btnCrearUsuario);
 		esperar(1);
 		String id = String.valueOf(identificacion);
 		// esperar(1);
@@ -38,7 +46,7 @@ public class UsuariosCrear extends PageBase {
 		// esperar(1);
 		clickButtonLink(comboBoxPerfil);
 		ingresarTipoUsuario(perfil);
-		esperar(1);
+		//esperar(1);
 		sendText(cajaTextoNombreUsuario, nombreUsuario);
 		sendText(cajaTextoEmail, email);
 		clickButtonLink(btnGuardarUsuario);
@@ -77,35 +85,54 @@ public class UsuariosCrear extends PageBase {
 	 *            nombre del banco
 	 * @throws InterruptedException
 	 */
-	public String buscarUsuario(String nombreUsuario) throws InterruptedException {
+	public boolean buscarUsuario(String nombreUsuario) throws InterruptedException {
 		String msj = "";
 		clickButtonLink(btnAdministracion);
 		clickButtonLink(btnUsuarios);
 		esperar(2);// Espera 5 segundos para dar tiempo a la pantalla
 		clickButtonLink(cajaTextoBuscador);
+		esperar(1);
 		sendText(cajaTextoBuscador, nombreUsuario);
+		esperar(1);
 		clickButtonLink(btnBuscador);
 		esperar(2);
 		// cajatextobuscador.sendKeys(nombreBanco);
 		// btnBuscar.click();
 
-		msj = driver.findElement(By.xpath("//html/body/div[2]/div[2]/div/div[2]/div[1]/table/tbody/tr/td[1]"))
-				.getText();
-		System.out.println("----------------->" + msj + "<-----------------------");
-		return msj;
+		// msj =
+		// driver.findElement(By.xpath("//html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/div/table/tbody/tr/td[1]"))
+		// .getText();
+		//System.out.println("-------------------------->" + textobusqueda.getText() + "<----------------------");
+		//System.out.println("------------------>" + textobusqueda.isDisplayed()+ "<------------------------");
+		if (isElementPresentAndDisplay(textobusqueda)) {
+			return true;
+
+		} else {
+			return false;
+		}
+	}
+	
+	
+	public boolean comprobarTextos() {
+		if(isElementPresentAndDisplay(textoIdRepetido)) {
+			return true;
+		}else {
+			return false;
+		}
+		
 	}
 
 	/**
 	 * Opcion usuarios
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[1]/div[1]/div/ul/li[1]/a")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[1]/p[1]/a")
 	private WebElement btnUsuarios;
 
 	// Boton de administrador
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[1]/div[1]/div/a[1]")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[1]/div/img")
 	private WebElement btnAdministracion;
 
-	@FindBy(how = How.XPATH, using = "//html/body/div[3]/div/div/div/form/div/div[2]/div/span")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[2]/fieldset/div/div/form/div/div[2]/div[1]/div/div/span")
 	private WebElement textoIdRepetido;
 
 	/**
@@ -130,37 +157,37 @@ public class UsuariosCrear extends PageBase {
 	 * ComboBox donde se encuentran todos los perfiles que se pueden elegir para un
 	 * usuario
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[2]/fieldset/div/form/div/div[3]/div/div/select")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[2]/fieldset/div/form/div/div[1]/div[3]/div/div/select")
 	private WebElement comboBoxPerfil;
 
 	/**
 	 * Perfil 1 del comboBox que equivale al perfil ADMINISTRADOR
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[3]/div/div/div/form/div/div[3]/div/select/option[1]")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[2]/fieldset/div/form/div/div[1]/div[3]/div/div/select/option[1]")
 	private WebElement comboBoxPerfil_1;
 
 	/**
 	 * Perfil 2 del comboBox que equivale al perfil CAJERO
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[3]/div/div/div/form/div/div[3]/div/select/option[2]")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[2]/fieldset/div/form/div/div[1]/div[3]/div/div/select/option[2]")
 	private WebElement comboBoxPerfil_2;
 
 	/**
 	 * Perfil 3 del comboBox que equivale al perfil COORDINADOR
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[3]/div/div/div/form/div/div[3]/div/select/option[3]")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[2]/fieldset/div/form/div/div[1]/div[3]/div/div/select/option[3]")
 	private WebElement comboBoxPerfil_3;
 
 	/**
 	 * Perfil 4 del comboBox que equivale al perfil JEFE DE RECAUDO
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[3]/div/div/div/form/div/div[3]/div/select/option[4]")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[2]/fieldset/div/form/div/div[1]/div[3]/div/div/select/option[4]")
 	private WebElement comboBoxPerfil_4;
 
 	/**
 	 * Perfil 5 del comboBox que equivale al perfil TESORERO
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[3]/div/div/div/form/div/div[3]/div/select/option[5]")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[2]/fieldset/div/form/div/div[1]/div[3]/div/div/select/option[4]")
 	private WebElement comboBoxPerfil_5;
 
 	/**
@@ -172,19 +199,19 @@ public class UsuariosCrear extends PageBase {
 	/**
 	 * Boton para guardar el usurio nuevo
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[3]/div/div/div/form/div/div[6]/div/input")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[2]/fieldset/div/form/div/div[3]/div/div/input")
 	private WebElement btnGuardarUsuario;
 
 	/**
 	 * Caja de texto buscados
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[2]/fieldset/div/form/div/div[6]/div/div/input")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/div/form/div/div[1]/div/input")
 	private WebElement cajaTextoBuscador;
 
 	/**
 	 * Boton del bucador de usuarios
 	 */
-	@FindBy(how = How.ID, using = "True")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[3]/fieldset/div/div/div/form/div/div[2]/input")
 	private WebElement btnBuscador;
 
 	/**
@@ -193,12 +220,21 @@ public class UsuariosCrear extends PageBase {
 	@FindBy(how = How.ID, using = "Usuario_CORREO")
 	private WebElement cajaTextoEmail;
 
+	/**
+	 * Texto que sale al buscar un usuario
+	 */
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[3]/fieldset/div/div/div/div/div/div/div/form/div/div[2]/input")
+	private WebElement textobusqueda;
+	
+	@FindBy(how = How.XPATH, using="//html/body/div[2]/div[2]/div[2]/ul/li[2]/a")
+	private WebElement pestanaUsuarios;
+
 	public WebElement getCajaTextoEmail() {
 		return cajaTextoEmail;
 	}
-  
+
 	/**
-	 *  
+	 * 
 	 * @param cajaTextoEmail
 	 */
 	public void setCajaTextoEmail(WebElement cajaTextoEmail) {

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import base.PageBase;
+import test.autebtificacion.edeq.LoginEdeqCorrecto;
 
 public class CuentasBancarias extends PageBase {
 
@@ -14,8 +15,10 @@ public class CuentasBancarias extends PageBase {
 	}
 
 	public boolean crearCuenta(String nombre, String numeroCuenta, boolean tipo, String banco, String cuentaContable) {
+		LoginEdeqCorrecto login= new LoginEdeqCorrecto();
+		login.loginCorrecto();
 		clickButtonLink(btnAdministracion);
-		esperar(1);
+		//esperar(1);
 		clickButtonLink(opcionCuentasBancarias);
 		esperar(1);
 		clickButtonLink(pestañaCuentasbancarias);
@@ -66,13 +69,13 @@ public class CuentasBancarias extends PageBase {
 	/**
 	 * Boton el cual contiene todas las opciones de administrador
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[1]/div[1]/div/a[1]")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[1]/div/img")
 	private WebElement btnAdministracion;
 
 	/**
 	 * Opcion cuentas bancarias
 	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[1]/div[1]/div/ul/li[2]/a")
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[1]/p[2]/a")
 	private WebElement opcionCuentasBancarias;
 
 	/**
@@ -152,6 +155,9 @@ public class CuentasBancarias extends PageBase {
 	 */
 	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/div/div/form/div/div[1]/div/input")
 	private WebElement cajaTextoBuscador;
+	
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/ul/li[5]/a")
+	private WebElement pestanaCuentas;
 	
 	/**
 	 * Boton del buscador

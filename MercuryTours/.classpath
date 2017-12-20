@@ -17,5 +17,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/MercuryToursGuia2/selenium-java-3.6.0/client-combined-3.6.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

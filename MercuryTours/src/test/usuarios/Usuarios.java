@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.sun.jna.platform.win32.OaIdl.ELEMDESC._ELEMDESC;
+
 import base.TestBase;
 import objectsEdeq.UsuariosCrear;
 import utils.ExcelUtils;
@@ -20,6 +22,7 @@ public class Usuarios extends TestBase {
 	String perfil = "";
 	String nombreUsuario = "";
 	String email = "";
+	int indiceUser = 3;
 
 	/**
 	 * Metodo que prueba que se agreguen correctamente los usuarios al sistema
@@ -29,12 +32,14 @@ public class Usuarios extends TestBase {
 		usuariosCrear = new UsuariosCrear(driver, pageFindFlight);
 
 		try {
+			// hay datos en el excel hasta 9
 			exelDatosUsuarios = new ExcelUtils("usuarios.xlsx", ExcelType.XLSX);
-			id = exelDatosUsuarios.getCellData(1, 3);
-			nombre = exelDatosUsuarios.getCellData(2, 3);
-			perfil = exelDatosUsuarios.getCellData(3, 3);
-			nombreUsuario = exelDatosUsuarios.getCellData(4, 3);
-			email = exelDatosUsuarios.getCellData(5, 3);
+			id = exelDatosUsuarios.getCellData(1, indiceUser);
+			nombre = exelDatosUsuarios.getCellData(2, indiceUser);
+			perfil = exelDatosUsuarios.getCellData(3, indiceUser);
+
+			nombreUsuario = exelDatosUsuarios.getCellData(4, indiceUser);
+			email = exelDatosUsuarios.getCellData(5, indiceUser);
 
 			System.out.println(id);
 			System.out.println(nombre);
@@ -47,7 +52,9 @@ public class Usuarios extends TestBase {
 
 			usuariosCrear.crearUsuario(id, nombre, tipoPerfil, nombreUsuario, email);
 
-			Assert.assertEquals(nombre, usuariosCrear.buscarUsuario(nombre));
+			// Assert.assertTrue(usuariosCrear.buscarUsuario(nombre));
+			// Assert.assertFalse(driver.findElement(By.xpath("//html/body/div[2]/div[2]/div/div[2]/fieldset/div/div/form/div/div[7]/div/div/a")).isDisplayed());
+			Assert.assertFalse(usuariosCrear.buscarUsuario(id));
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -66,11 +73,11 @@ public class Usuarios extends TestBase {
 
 		try {
 			exelDatosUsuarios = new ExcelUtils("usuarios.xlsx", ExcelType.XLSX);
-			id = exelDatosUsuarios.getCellData(1, 1);
-			nombre = exelDatosUsuarios.getCellData(2, 1);
-			perfil = exelDatosUsuarios.getCellData(3, 1);
-			nombreUsuario = exelDatosUsuarios.getCellData(4, 1);
-			email = exelDatosUsuarios.getCellData(5, 1);
+			id = exelDatosUsuarios.getCellData(1, indiceUser);
+			nombre = exelDatosUsuarios.getCellData(2, indiceUser);
+			perfil = exelDatosUsuarios.getCellData(3, indiceUser);
+			nombreUsuario = exelDatosUsuarios.getCellData(4, indiceUser);
+			email = exelDatosUsuarios.getCellData(5, indiceUser);
 
 			System.out.println(id);
 			System.out.println(nombre);
@@ -82,11 +89,8 @@ public class Usuarios extends TestBase {
 			tipoPerfil = Integer.parseInt(perfil);
 
 			usuariosCrear.crearUsuario(id, nombre, tipoPerfil, nombreUsuario, email);
-			System.out.println((driver.findElement(By.xpath("//html/body/div[2]/div[2]/div/div[2]/fieldset/div/div/form/div/div[2]/div/div/span")))
-					.getText());
-			Assert.assertEquals("Esta identificación ya está registrada",
-					(driver.findElement(By.xpath("//html/body/div[2]/div[2]/div/div[2]/fieldset/div/div/form/div/div[2]/div/div/span")))
-							.getText());
+
+			Assert.assertTrue(usuariosCrear.comprobarTextos());
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -106,11 +110,11 @@ public class Usuarios extends TestBase {
 
 		try {
 			exelDatosUsuarios = new ExcelUtils("usuarios.xlsx", ExcelType.XLSX);
-			id = exelDatosUsuarios.getCellData(1, 1);
-			nombre = exelDatosUsuarios.getCellData(2, 1);
-			perfil = exelDatosUsuarios.getCellData(3, 1);
-			nombreUsuario = exelDatosUsuarios.getCellData(4, 1);
-			email = exelDatosUsuarios.getCellData(5, 1);
+			id = exelDatosUsuarios.getCellData(1, indiceUser);
+			nombre = exelDatosUsuarios.getCellData(2, indiceUser);
+			perfil = exelDatosUsuarios.getCellData(3, indiceUser);
+			nombreUsuario = exelDatosUsuarios.getCellData(4, indiceUser);
+			email = exelDatosUsuarios.getCellData(5, indiceUser);
 
 			System.out.println(id);
 			System.out.println(nombre);
@@ -122,10 +126,11 @@ public class Usuarios extends TestBase {
 			tipoPerfil = Integer.parseInt(perfil);
 
 			usuariosCrear.crearUsuario(id, nombre, tipoPerfil, nombreUsuario, email);
-			System.out.println((driver.findElement(By.xpath("//html/body/div[3]/div/div/div/form/div/div[2]/div/span")))
-					.getText());
+			// System.out.println((driver.findElement(By.xpath("//html/body/div[3]/div/div/div/form/div/div[2]/div/span")))
+			// .getText());
 			// assAssert.assertEquals("Esta identificación ya está registrada",
 			// (driver.findElement(By.xpath("//html/body/div[3]/div/div/div/form/div/div[2]/div/span"))).getText());
+			Assert.assertTrue(usuariosCrear.comprobarTextos());
 
 		} catch (Exception e) {
 			// TODO: handle exception

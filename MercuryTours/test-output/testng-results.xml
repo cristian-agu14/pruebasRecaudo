@@ -2,38 +2,27 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="43425" started-at="2017-12-05T14:48:58Z" finished-at="2017-12-05T14:49:42Z">
+  <suite name="Default suite" duration-ms="22377" started-at="2017-12-20T20:58:40Z" finished-at="2017-12-20T20:59:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="43425" started-at="2017-12-05T14:48:58Z" finished-at="2017-12-05T14:49:42Z">
-      <class name="test.cuenta.bancaria.CrearCuenta">
-        <test-method status="PASS" signature="initializeTestBaseSetup()[pri:0, instance:test.cuenta.bancaria.CrearCuenta@46d56d67]" name="initializeTestBaseSetup" is-config="true" duration-ms="7199" started-at="2017-12-05T09:48:58Z" finished-at="2017-12-05T09:49:06Z">
+    <test name="Default test" duration-ms="22377" started-at="2017-12-20T20:58:40Z" finished-at="2017-12-20T20:59:03Z">
+      <class name="cliente.recaudo.test.ClienteRecaudo">
+        <test-method status="PASS" signature="initializeTestBaseSetup()[pri:0, instance:cliente.recaudo.test.ClienteRecaudo@59fa1d9b]" name="initializeTestBaseSetup" is-config="true" duration-ms="2497" started-at="2017-12-20T15:58:40Z" finished-at="2017-12-20T15:58:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="FAIL" signature="crearCuenta()[pri:0, instance:test.cuenta.bancaria.CrearCuenta@46d56d67]" name="crearCuenta" duration-ms="35859" started-at="2017-12-05T09:49:06Z" finished-at="2017-12-05T09:49:41Z">
+        <test-method status="FAIL" signature="crearClienteRecaudo()[pri:0, instance:cliente.recaudo.test.ClienteRecaudo@59fa1d9b]" name="crearClienteRecaudo" duration-ms="18934" started-at="2017-12-20T15:58:43Z" finished-at="2017-12-20T15:59:02Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Unable to locate element: //html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/table/tbody/tr/td[2]
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
-System info: host: 'DESKTOP-LV7M220', ip: '192.168.1.153', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_151'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Users\WINDOW~1\AppData\Local\Temp\rust_mozprofile.a5qZRmMGhcI6, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=XP, specificationLevel=0, moz:accessibilityChecks=false, acceptInsecureCerts=true, browserVersion=54.0, platformVersion=10.0, moz:processID=14800, browserName=firefox, javascriptEnabled=true, platformName=XP}]
-Session ID: 244eaa90-e94e-47c3-b019-28470c0d7e60
-*** Element info: {Using=xpath, value=//html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/table/tbody/tr/td[2]}]]>
+              <![CDATA[expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Unable to locate element: //html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/table/tbody/tr/td[2]
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
-System info: host: 'DESKTOP-LV7M220', ip: '192.168.1.153', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_151'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Users\WINDOW~1\AppData\Local\Temp\rust_mozprofile.a5qZRmMGhcI6, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=XP, specificationLevel=0, moz:accessibilityChecks=false, acceptInsecureCerts=true, browserVersion=54.0, platformVersion=10.0, moz:processID=14800, browserName=firefox, javascriptEnabled=true, platformName=XP}]
-Session ID: 244eaa90-e94e-47c3-b019-28470c0d7e60
-*** Element info: {Using=xpath, value=//html/body/div[2]/div[2]/div/div[3]/fieldset/div/div/table/tbody/tr/td[2]}
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:93)
-	at test.cuenta.bancaria.CrearCuenta.crearCuenta(CrearCuenta.java:46)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at org.testng.Assert.assertTrue(Assert.java:51)
+	at cliente.recaudo.test.ClienteRecaudo.crearClienteRecaudo(ClienteRecaudo.java:42)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -64,12 +53,12 @@ Session ID: 244eaa90-e94e-47c3-b019-28470c0d7e60
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- crearCuenta -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:test.cuenta.bancaria.CrearCuenta@46d56d67]" name="tearDown" is-config="true" duration-ms="350" started-at="2017-12-05T09:49:41Z" finished-at="2017-12-05T09:49:42Z">
+        </test-method> <!-- crearClienteRecaudo -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:cliente.recaudo.test.ClienteRecaudo@59fa1d9b]" name="tearDown" is-config="true" duration-ms="926" started-at="2017-12-20T15:59:02Z" finished-at="2017-12-20T15:59:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- test.cuenta.bancaria.CrearCuenta -->
+      </class> <!-- cliente.recaudo.test.ClienteRecaudo -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

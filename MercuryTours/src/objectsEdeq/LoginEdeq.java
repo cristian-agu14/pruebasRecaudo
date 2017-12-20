@@ -17,10 +17,10 @@ public class LoginEdeq extends PageBase {
 	// WebElements
 
 	// Elemento web User Name
-	@FindBy(how = How.NAME, using = "user")
+	@FindBy(how = How.ID, using = "user")
 	private WebElement inputUserName;
 	// Elemento web Password
-	@FindBy(how = How.NAME, using = "password")
+	@FindBy(how = How.ID, using = "password")
 	private WebElement inputPassword;
 	// Elemento web User Name
 	// @FindBy(how=How.NAME, using = "login")
