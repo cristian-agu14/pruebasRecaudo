@@ -137,7 +137,7 @@ public class BancosCrear extends PageBase {
 	private WebElement btnAdministracion;
 
 	// Boton de administrador
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[1]/p[3]/a")
+	@FindBy(how = How.ID, using = "menu2")
 	private WebElement btnOpcionBancos;
 
 	// Boton para crear un nuevo banco

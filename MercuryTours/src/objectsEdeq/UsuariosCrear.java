@@ -45,7 +45,7 @@ public class UsuariosCrear extends PageBase {
 		sendText(cajatextoNombre, nombre);
 		// esperar(1);
 		clickButtonLink(comboBoxPerfil);
-		ingresarTipoUsuario(perfil);
+		selectDropdownVisibleText(comboBoxPerfil, "Cajero");
 		//esperar(1);
 		sendText(cajaTextoNombreUsuario, nombreUsuario);
 		sendText(cajaTextoEmail, email);

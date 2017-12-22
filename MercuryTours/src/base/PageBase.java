@@ -230,4 +230,15 @@ public class PageBase {
 		} // catch
 	} // isAlertPresent()
 
+	/**
+	 * Metodo que selecciona los permisos de la lista de permisos
+	 * 
+	 * @param numeroId
+	 *            cadena que identifica el permiso
+	 */
+	public void encontrarCheckBox(String numeroId) {
+		WebElement checkBox = driver.findElement(By.id(numeroId));
+		clickButtonLink(checkBox);
+	}
+
 }

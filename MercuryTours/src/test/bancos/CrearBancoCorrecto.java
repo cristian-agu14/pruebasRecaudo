@@ -22,7 +22,7 @@ public class CrearBancoCorrecto extends TestBase {
 
 	@Test
 	public void crearBanco() {
-		int bancoExcel = 5;// indice de las colomnas con los nombres en excel
+		int bancoExcel = 1;// indice de las colomnas con los nombres en excel
 		try {
 
 			exelDatosBancos = new ExcelUtils("datosBancos.xlsx", ExcelType.XLSX);
@@ -39,7 +39,7 @@ public class CrearBancoCorrecto extends TestBase {
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
 			e.printStackTrace();
-		}
+		}	
 	}
 
 }
