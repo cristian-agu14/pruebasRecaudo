@@ -32,8 +32,8 @@ public class ExcelUtils {
 	}
 
 	/**
-	 * Crea una instancia de la clase utilitaria para leer los datos de un
-	 * archivo de excel. Se carga por defecto la primera hoja
+	 * Crea una instancia de la clase utilitaria para leer los datos de un archivo
+	 * de excel. Se carga por defecto la primera hoja
 	 * 
 	 * @param path
 	 *            Ruta del archivo a cargar
@@ -57,7 +57,7 @@ public class ExcelUtils {
 	 * @throws IOException
 	 */
 	public ExcelUtils(String path, int numSheet, ExcelType tipo) throws FileNotFoundException, IOException {
-		excelWBook = createWorkBook(new FileInputStream(BASE_PATH+path), tipo);
+		excelWBook = createWorkBook(new FileInputStream(BASE_PATH + path), tipo);
 		loadSheet(numSheet);
 	}
 
@@ -74,21 +74,27 @@ public class ExcelUtils {
 	 * @throws IOException
 	 */
 	public ExcelUtils(String path, String sheetName, ExcelType tipo) throws FileNotFoundException, IOException {
-		excelWBook = createWorkBook(new FileInputStream(BASE_PATH+path), tipo);
+		excelWBook = createWorkBook(new FileInputStream(BASE_PATH + path), tipo);
 		loadSheet(sheetName);
 	}
 
 	/**
-	 * Metodo que permite cambiar la hoja del archivo de excel de la cual se estan extrayendo los datos
-	 * @param sheetName Nombre de la hoja del archivo de excel
+	 * Metodo que permite cambiar la hoja del archivo de excel de la cual se estan
+	 * extrayendo los datos
+	 * 
+	 * @param sheetName
+	 *            Nombre de la hoja del archivo de excel
 	 */
 	public void loadSheet(String sheetName) {
 		sheet = excelWBook.getSheet(sheetName);
 	}
 
 	/**
-	 * Metodo que permite cambiar la hoja del archivo de excel de la cual se estan extrayendo los datos
-	 * @param numSheet Número de la hoja que se desea cargar
+	 * Metodo que permite cambiar la hoja del archivo de excel de la cual se estan
+	 * extrayendo los datos
+	 * 
+	 * @param numSheet
+	 *            Número de la hoja que se desea cargar
 	 */
 	public void loadSheet(int numSheet) {
 		sheet = excelWBook.getSheetAt(numSheet);
@@ -96,55 +102,78 @@ public class ExcelUtils {
 
 	/**
 	 * Método que permite obtener la información de una celda
-	 * @param rowNum número de la fila
-	 * @param colNum número de la columna
-	 * @param sheetName Nombre de la hoja
+	 * 
+	 * @param rowNum
+	 *            número de la fila
+	 * @param colNum
+	 *            número de la columna
+	 * @param sheetName
+	 *            Nombre de la hoja
 	 * @return un String con la información de la celda
 	 */
-	public String getCellData(int rowNum, int colNum, String sheetName)  {
+	public String getCellData(int rowNum, int colNum, String sheetName) {
 		loadSheet(sheetName);
 		return getCellData(rowNum, colNum);
 	}
 
 	/**
 	 * Método que permite obtener la información de una celda
-	 * @param rowNum número de la fila
-	 * @param colNum número de la columna
-	 * @param numSheet Número de la hoja
+	 * 
+	 * @param rowNum
+	 *            número de la fila
+	 * @param colNum
+	 *            número de la columna
+	 * @param numSheet
+	 *            Número de la hoja
 	 * @return un String con la información de la celda
 	 */
-	public String getCellData(int rowNum, int colNum, int numSheet)  {
+	public String getCellData(int rowNum, int colNum, int numSheet) {
 		loadSheet(numSheet);
 		return getCellData(rowNum, colNum);
 	}
 
 	/**
 	 * Método que permite obtener la información de una celda
-	 * @param rowNum número de la fila
-	 * @param colNum número de la columna
+	 * 
+	 * @param rowNum
+	 *            número de la fila
+	 * @param colNum
+	 *            número de la columna
 	 * @return un String con la información de la celda
 	 * @throws Exception
 	 */
-	public String getCellData(int rowNum, int colNum)  {
-		try{
+	public String getCellData(int rowNum, int colNum) {
+		try {
 			Cell cell = sheet.getRow(rowNum).getCell(colNum);
 			CellType cellTypeEnum = cell.getCellTypeEnum();
 			return getCellStringValue(cell, cellTypeEnum);
-		}catch (Exception e) {
-			throw new RuntimeException("Error al obtener el dato de la celda "+rowNum+":"+colNum, e);
+		} catch (Exception e) {
+			throw new RuntimeException("Error al obtener el dato de la celda " + rowNum + ":" + colNum, e);
 		}
+	}
+
+	public void setCellData(int rowNum, int colNum, String valor) {
+		try {
+			Cell cell = sheet.getRow(rowNum).getCell(colNum);
+			CellType cellTypeEnum = cell.getCellTypeEnum();
+			cell.setCellValue(valor);
+
+		} catch (Exception e) {
+			throw new RuntimeException("Error al guardar el dato de la celda " + rowNum + ":" + colNum, e);
+		}
+
 	}
 
 	private String getCellStringValue(Cell cell, CellType cellTypeEnum) {
 		switch (cellTypeEnum) {
 		case NUMERIC:
-			return ""+cell.getNumericCellValue();
+			return "" + cell.getNumericCellValue();
 		case BOOLEAN:
-			return ""+ cell.getBooleanCellValue();
+			return "" + cell.getBooleanCellValue();
 		case FORMULA:
-			return getCellStringValue(cell, cell.getCachedFormulaResultTypeEnum() );
+			return getCellStringValue(cell, cell.getCachedFormulaResultTypeEnum());
 		case ERROR:
-			return "CELL ERROR: " +cell.getErrorCellValue();
+			return "CELL ERROR: " + cell.getErrorCellValue();
 		case BLANK:
 		case _NONE:
 			return "";
@@ -154,13 +183,17 @@ public class ExcelUtils {
 	}
 
 	/**
-	 * Método que crea la instancia de la clase (dependiendo de su tipo) que manipulará el archivo de excel.
-	 * @param input Flujo de entrada del archivo de excel
-	 * @param tipo Tipo de archivo
+	 * Método que crea la instancia de la clase (dependiendo de su tipo) que
+	 * manipulará el archivo de excel.
+	 * 
+	 * @param input
+	 *            Flujo de entrada del archivo de excel
+	 * @param tipo
+	 *            Tipo de archivo
 	 * @return un libro de excel
 	 * @throws IOException
 	 */
-	private  Workbook createWorkBook(InputStream input, ExcelType tipo) throws IOException {
+	private Workbook createWorkBook(InputStream input, ExcelType tipo) throws IOException {
 		switch (tipo) {
 		case XLS:
 			return new HSSFWorkbook(input);
@@ -172,5 +205,4 @@ public class ExcelUtils {
 
 	}
 
-	
 }

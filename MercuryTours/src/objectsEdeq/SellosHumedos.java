@@ -94,17 +94,17 @@ public class SellosHumedos extends PageBase {
 		}
 
 	}
-	
-//	public boolean verificarMensajes() {
-//		isElementPresentAndDisplay(element)
-//	}
-	
+
+	// public boolean verificarMensajes() {
+	// isElementPresentAndDisplay(element)
+	// }
+
 	/**
 	 * Mensaje que sale cuando ya se ha asignado un sello humedo con ese numero
 	 */
 	@FindBy(how = How.XPATH, using = "//html/body/div[3]/div/div/div/form/div/div[3]/div/div/span")
 	private WebElement msjErrorSelloHumedo;
-	
+
 	/**
 	 * Mensaje que sale cuando ya se le ha asignado un sello humedo a ese Cajero
 	 */
@@ -280,6 +280,5 @@ public class SellosHumedos extends PageBase {
 	public void setOpcionCajero_3(WebElement opcionCajero_3) {
 		this.opcionCajero_3 = opcionCajero_3;
 	}
-	
 
 }

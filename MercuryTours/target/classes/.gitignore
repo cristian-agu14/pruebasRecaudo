@@ -1,4 +1,9 @@
-/test/
-/objectsEdeq/
 /base/
+/cliente/
+/objectsEdeq/
+/pageObjects/
+/proveedores/
+/scriptSencillo/
+/test/
+/utils/
 /datapool/

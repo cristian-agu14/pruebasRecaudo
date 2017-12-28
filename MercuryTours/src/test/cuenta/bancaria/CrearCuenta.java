@@ -1,7 +1,5 @@
 package test.cuenta.bancaria;
 
-import static org.testng.Assert.assertEquals;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,7 +19,7 @@ public class CrearCuenta extends TestBase {
 	private String cuentaContable = "";
 	private String tipoCuenta = "";
 	private String banco = "";
-	int indiceCuenta=4;
+	int indiceCuenta=1;
 
 	/**
 	 * metodo que prueba la accion de crear cuentas bancarias
@@ -37,8 +35,6 @@ public class CrearCuenta extends TestBase {
 			tipoCuenta = exelDatosCuentas.getCellData(3, indiceCuenta);
 			numeroCuenta = exelDatosCuentas.getCellData(4, indiceCuenta);
 			cuentaContable = exelDatosCuentas.getCellData(5, indiceCuenta);
-
-			// boolean aux =
 
 			Assert.assertTrue(cuentasBancarias.crearCuenta(nombreCuenta, numeroCuenta, seleccionarCuenta(tipoCuenta),
 					banco, cuentaContable));

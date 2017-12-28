@@ -224,11 +224,11 @@ public class PageBase {
 		try {
 			driver.switchTo().alert();
 			return true;
-		} // try
+		} 
 		catch (NoAlertPresentException Ex) {
 			return false;
-		} // catch
-	} // isAlertPresent()
+		} 
+	} 
 
 	/**
 	 * Metodo que selecciona los permisos de la lista de permisos

@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.ClickAction;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -26,7 +27,7 @@ public class LoginPage extends PageBase{
 	private WebElement inputPassword;
 	//Elemento web User Name
 	//@FindBy(how=How.NAME, using = "login")
-	@FindBy(how=How.XPATH, using = "//html/body/form/div/div/div[2]/div[2]/input[2]")
+	@FindBy(how=How.XPATH, using = "//html/body/form/div/div/div[2]/div[2]/input")
 	private WebElement buttonSingIn;
 	
 	

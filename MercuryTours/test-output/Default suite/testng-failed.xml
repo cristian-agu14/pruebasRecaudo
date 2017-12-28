@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="test.bancos.CrearBancoCorrecto">
+      <class name="test.cajas.CrearCaja">
         <methods>
-          <include name="crearBanco"/>
           <include name="initializeTestBaseSetup"/>
+          <include name="crearCaja"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- test.bancos.CrearBancoCorrecto -->
+      </class> <!-- test.cajas.CrearCaja -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

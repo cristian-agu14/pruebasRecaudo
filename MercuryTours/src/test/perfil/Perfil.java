@@ -3,7 +3,6 @@ package test.perfil;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,8 +21,8 @@ public class Perfil extends TestBase {
 	private String nombrePerfil = "";
 	private ArrayList<String> listaPermisos = new ArrayList<>();
 	private String idPermiso = "";
+	int indice = 3;
 
-	int indice = 2;
 
 	/**
 	 * Metodo que prueba la creacion de los perfiles
@@ -38,7 +37,6 @@ public class Perfil extends TestBase {
 			Assert.assertTrue(perfilCrear.crearPerfil(nombrePerfil, llenarArray()));
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			Assert.fail(e.getMessage());
 			e.printStackTrace();
 		}
@@ -66,7 +64,6 @@ public class Perfil extends TestBase {
 		}finally {
 			return listaPermisos;
 		}
-		//return listaPermisos;
 	}
 
 }

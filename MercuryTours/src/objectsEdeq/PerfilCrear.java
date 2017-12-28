@@ -20,13 +20,19 @@ public class PerfilCrear extends PageBase {
 	}
 
 	/**
-	 * Metodo que prueba la creacion de un perfil
+	 * Metodo que realiza las acciones en la pagina para crear perfil
 	 * 
-	 * @return True se ha creardo el perfil de manera satisfactoria
+	 * @param nombre,
+	 *            del perfil nuevo
+	 * @param listaId,
+	 *            lista de {@link String} en donde estan los IDs de los permisos
+	 * @return una lista de IDs
 	 */
 	public boolean crearPerfil(String nombre, ArrayList<String> listaId) {
 		login.loginCorrecto();
+		// esperar(2);
 		clickButtonLink(btnMenu);
+		// esperar(1);
 		clickButtonLink(opcionPerfiles);
 		sendText(cajaTextoNombre, nombre);
 		seleccionarPerfiles(listaId);
@@ -37,7 +43,10 @@ public class PerfilCrear extends PageBase {
 
 	/**
 	 * Metodo que selecciona los perfiles que se van a seleccionar
-	 * @param numeros
+	 * 
+	 * @param numeros,
+	 *            {@link ArrayList} de IDs
+	 * 
 	 */
 	public void seleccionarPerfiles(ArrayList<String> numeros) {
 		for (int i = 0; i < numeros.size(); i++) {
@@ -50,7 +59,7 @@ public class PerfilCrear extends PageBase {
 	/**
 	 * Boton del menu principal
 	 */
-	@FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/div[1]/div/img")
+	@FindBy(how = How.CLASS_NAME, using = "menuBtn")
 	private WebElement btnMenu;
 
 	/**
@@ -65,12 +74,6 @@ public class PerfilCrear extends PageBase {
 	@FindBy(how = How.ID, using = "perfil_NOMBREPERFIL")
 	private WebElement cajaTextoNombre;
 
-	// /**
-	// * CheckBox para seleccionar el permiso que se quiere asignar a un perfil
-	// */
-	// @FindBy(how = How.ID, using = indiceCheckBox)
-	// private WebElement checkBox;
-	//
 	/**
 	 * Bonton para asignar el permiso y pasarlos a la otra lista en la pantalla
 	 */

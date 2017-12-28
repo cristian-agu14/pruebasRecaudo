@@ -1,12 +1,9 @@
 package proveedores.test;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import base.PageBase;
 import base.TestBase;
-import objectsEdeq.CuentasBancarias;
 import objectsEdeq.ProveedoresCrear;
 import utils.ExcelUtils;
 import utils.ExcelUtils.ExcelType;
