@@ -1,13 +1,11 @@
 package test.bancos;
 
-import java.util.ArrayList;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestBase;
 import objectsEdeq.BancosCrear;
-import test.autebtificacion.edeq.LoginEdeqCorrecto;
 import utils.ExcelUtils;
 import utils.ExcelUtils.ExcelType;
 
@@ -18,7 +16,7 @@ public class CrearBancoCorrecto extends TestBase {
 	static ExcelUtils exelDatosBancos;
 	private String nombreBanco = "";
 	private String codigo = "";
-	private ArrayList<ExcelUtils> hoal = new ArrayList<>();
+	//private ArrayList<ExcelUtils> hoal = new ArrayList<>();
 
 	@Test
 	public void crearBanco() {

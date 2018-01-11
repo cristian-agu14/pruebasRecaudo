@@ -27,7 +27,7 @@ public class CrearCaja extends TestBase {
 	/*
 	 * El id va desde 2 que es armenia, hasta 13 que es salento
 	 */
-	int idExcelMunicipio = 4;
+	int idExcelMunicipio = 10;
 	String ultimaCajaIngresada = "";
 
 	/**

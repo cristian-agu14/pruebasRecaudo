@@ -177,6 +177,15 @@ public class PageBase {
 	}
 
 	/**
+	 * Metodo que obtiene el el texto de un elemento
+	 * @param element, elemento que contiene el texto 
+	 * @return el texto del elemento
+	 */
+	public String getText(WebElement element) {
+		return element.getText();
+	}
+	
+	/**
 	 * Selecciona una opción del combo box por su valor, este método es para
 	 * acceder a opciones cuando se manejan multiples capas en el frontend
 	 * 

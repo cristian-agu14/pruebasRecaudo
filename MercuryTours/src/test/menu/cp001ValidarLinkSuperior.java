@@ -15,9 +15,6 @@ public class cp001ValidarLinkSuperior extends TestBase {
 	MenuNavegacionPage menu;
 	String pageTitleIndex = "Welcome: Mercury Tours";
 	private String lnkSingOn="";
-	private String lnkRegister="";
-	private String lnkSupport=""; 
-	private String lnkContact=""; 
 
 	// Utilidad para el manejo de excel
 	static ExcelUtils excelLinksMenu;

@@ -20,7 +20,7 @@ public class ClienteRecaudo extends TestBase {
 	private String celular = "";
 	private String direccion = "";
 
-	int indiceCuenta = 4;
+	int indiceCuenta = 6;
 
 	/**
 	 * Metodo que prueba la creacion de los proveedores de recaudos

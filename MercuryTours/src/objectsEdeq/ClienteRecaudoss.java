@@ -1,9 +1,4 @@
 package objectsEdeq;
-
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlList;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

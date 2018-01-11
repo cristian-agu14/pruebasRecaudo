@@ -1,10 +1,8 @@
 package test.usuarios;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.sun.jna.platform.win32.OaIdl.ELEMDESC._ELEMDESC;
 
 import base.TestBase;
 import objectsEdeq.UsuariosCrear;
@@ -22,7 +20,7 @@ public class Usuarios extends TestBase {
 	String perfil = "";
 	String nombreUsuario = "";
 	String email = "";
-	int indiceUser = 3;
+	int indiceUser = 4;
 
 	/**
 	 * Metodo que prueba que se agreguen correctamente los usuarios al sistema

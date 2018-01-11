@@ -3,12 +3,10 @@ package test.para.probar;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
-import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
@@ -20,7 +18,7 @@ import base.TestBase;
 public class TraerUntexto extends TestBase {
 	private WebDriver driver;
 	private String baseUrl;
-	private boolean acceptNextAlert = true;
+	//private boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();
 
 	@BeforeClass(alwaysRun = true)

@@ -6,11 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import base.PageBase;
-import test.autebtificacion.edeq.LoginEdeqCorrecto;
 
 public class Sedes extends PageBase {
 
-	private LoginEdeqCorrecto login = new LoginEdeqCorrecto();
+	
 
 	public Sedes(WebDriver driver, String pageTitle) {
 		super(driver, pageTitle);
@@ -18,13 +17,26 @@ public class Sedes extends PageBase {
 	}
 
 	/**
-	 * Metodo que ingresa y graba los datos de una sede 
+	 * Metodo que ingresa y graba los datos de una sede
+	 * 
 	 * @param nombre
 	 * @param direccion
 	 * @param municipio
 	 * @return
 	 */
-	private boolean crearsede(String nombre, String direccion, String municipio) {
+	public boolean crearSede(String nombre, String direccion, String municipio) {
+		
+		clickButtonLink(btnMenu);
+		clickButtonLink(opcionSedes);
+		clickButtonLink(pestanaSedes);
+		sendText(cajaTextoNombreSede, nombre);
+		sendText(cajaTextoDireccion, direccion);
+		selectDropdownVisibleText(listaMunicipios, municipio);
+		//selectDropdownValue(listaMunicipios, municipio);
+		//lesperar(2);
+		
+		clickButtonLink(btnGrabarSede);
+		//esperar(1);
 
 		return true;
 	}
@@ -62,8 +74,8 @@ public class Sedes extends PageBase {
 	/**
 	 * Lista desplegable de los municipios del quindio
 	 */
-	@FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/div[2]/div[2]/fieldset/div/form/div/div[1]/div[3]/div/div/select")
-	private WebElement listaMunicipio;
+	@FindBy(how = How.NAME, using = "Sede.MUNICIPIO_ID")
+	private WebElement listaMunicipios;
 
 	/**
 	 * Boton para guardar los datos ingresados de la sede

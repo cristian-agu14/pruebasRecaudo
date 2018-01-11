@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import base.PageBase;
-import test.autebtificacion.edeq.LoginEdeqCorrecto;
 
 public class Caja extends PageBase {
 
@@ -36,6 +35,7 @@ public class Caja extends PageBase {
 		sendText(cajaTextoNumeroCaja, numeroCaja);
 		selectDropdownVisibleText(listaMunicipio,municipio);
 		clickButtonLink(btnGrabarCaja);
+		
 		return true;
 		
 	}

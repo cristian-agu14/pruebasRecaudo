@@ -5,8 +5,6 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import objectsEdeq.ProveedoresRecaudo;
-import pageObjects.FindFlightPage;
-import pageObjects.LoginPage;
 import utils.ExcelUtils;
 import utils.ExcelUtils.ExcelType;
 
@@ -26,7 +24,7 @@ public class Proveedor extends TestBase {
 
 	@Test
 	public void crearClienteRecauco() {
-		int indice = 2;
+		int indice = 3;
 		proveedoresRecaudo = new ProveedoresRecaudo(driver, pageFindFlight);
 		try {
 
