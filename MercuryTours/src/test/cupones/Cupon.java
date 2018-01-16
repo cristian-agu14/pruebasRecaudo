@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import objectsEdeq.Cupones;
+import test.Pagos.RealizarPagos;
 import test.autebtificacion.edeq.LoginCajero;
 import utils.ExcelUtils;
 import utils.ExcelUtils.ExcelType;
@@ -30,6 +31,8 @@ public class Cupon extends TestBase {
 	private String pageFindFlight = "Find a Flight: Edeq";
 
 	private Cupones cupones;
+	
+	private RealizarPagos realizarPagos;
 
 	@Test
 	private void crearCupon() {
@@ -37,6 +40,7 @@ public class Cupon extends TestBase {
 		loginCajero = new LoginCajero();
 		loginCajero.loginCorrecto();
 		cupones = new Cupones(driver, pageFindFlight);
+		realizarPagos = new RealizarPagos();
 		try {
 			excelDatosCupones = new ExcelUtils("cupones.xlsx", ExcelType.XLSX);
 			nombreEmpresa = excelDatosCupones.getCellData(2, indiceCupones);
@@ -46,11 +50,12 @@ public class Cupon extends TestBase {
 			codigoBarras = excelDatosCupones.getCellData(5, indiceCupones);
 			valorCupon = excelDatosCupones.getCellData(6, indiceCupones);
 			cupones.crearCupon(nitEmpresa, nombreEmpresa, numeroReferencia, valorSAC, codigoBarras, valorCupon);
-
+			realizarPagos.realizarPagoEfectivo(valorCupon);
+			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
 			e.printStackTrace();
 		}
 	}
-
+	
 }

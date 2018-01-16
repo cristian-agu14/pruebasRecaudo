@@ -13,16 +13,16 @@ public class RealizarPagos extends TestBase {
 	private PagoObligaciones pago;
 
 	@Test
-	public void realizarPagoEfectivo() {
-		loginCajero.loginCorrecto();
+	public void realizarPagoEfectivo(String valorCupon) {
+	//	loginCajero.loginCorrecto();
 		pago = new PagoObligaciones(driver, pageFindFlight);
 		try {
-			Assert.assertTrue(pago.pagarSoloEfectivo());
-
+			Assert.assertTrue(pago.pagarSoloEfectivo(valorCupon));
+			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
 			e.printStackTrace();
 		}
 	}
-
+	
 }

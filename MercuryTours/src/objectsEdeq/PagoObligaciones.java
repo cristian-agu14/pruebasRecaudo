@@ -21,25 +21,26 @@ public class PagoObligaciones extends PageBase {
 	 * @return true si el pago fue correcto (valorAPagar - Dinero = 0)
 	 * @return false si el pago no es el correcto (devuelta != 0)
 	 */
-	public boolean pagarSoloEfectivo() {
-		String valorCupon = "";
-		String devuelta = "";
+	public boolean pagarSoloEfectivo(String valorCupon) {
 
-		clickButtonLink(btnMenu);
-		clickButtonLink(opcionPagos);
+		
+		//clickButtonLink(btnMenu);
+		//clickButtonLink(opcionPagos);
 		//valorCupon = getText(valorPagar);
 		//WebElement webElementValorCupon =  driver.findElement(By.xpath("//html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div[1]/div/div/input"));
 		//valorCupon = webElementValorCupon.getText();
-		valorCupon = cajaTextoValorDesembolso.getText(); 
+		//valorCupon = cajaTextoValorDesembolso.getText(); 
 		System.out.println("--------------->" + valorCupon + "<---------------------");
 		sendText(cajaTextoValorDesembolso, valorCupon);
 		clickButtonLink(btnGuardarDesembolso);
-		devuelta = getText(valorDevuelta);
-		if (devuelta.equals("0")) {
-			return true;
-		} else {
-			return false;
-		}
+		//devuelta = getText(valorDevuelta);
+		
+		// if (devuelta.equals("0")) {
+		// return true;
+		// } else {
+		// return false;
+		// }
+ 		return true;
 
 	}
 
@@ -65,7 +66,7 @@ public class PagoObligaciones extends PageBase {
 	 * Caja de texto en la que se debe de ingresar el valor a pagar
 	 */
 	@FindBy(how = How.ID, using = "Valor")
-	private WebElement cajaTextoValorDesembolso;
+	private WebElement cajaTextoValorDesembolso; 
 
 	/**
 	 * Caja de texto en donde se muestra el valor de la devuelta

@@ -35,8 +35,8 @@ public class Cupones extends PageBase {
 		sendText(cajaTextoValorSAC, valorSAC);
 		sendText(cajaTextoCodigoBarras, codigoBarras);
 		sendText(cajaTextoValorCupon, valorCupon);
-		clickButtonLink(btnMenuPrincipal);
-		
+		clickButtonLink(btnGrabarCupon);
+
 		return true;
 
 	}
