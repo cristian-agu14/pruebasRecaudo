@@ -48,7 +48,7 @@ public class Cupon extends TestBase {
 			numeroReferencia = excelDatosCupones.getCellData(3, indiceCupones);
 			valorSAC = excelDatosCupones.getCellData(4, indiceCupones);
 			codigoBarras = excelDatosCupones.getCellData(5, indiceCupones);
-			valorCupon = excelDatosCupones.getCellData(6, indiceCupones);
+			//valorCupon = excelDatosCupones.getCellData(6, indiceCupones);
 			cupones.crearCupon(nitEmpresa, nombreEmpresa, numeroReferencia, valorSAC, codigoBarras, valorCupon);
 			realizarPagos.realizarPagoEfectivo(valorCupon);
 			

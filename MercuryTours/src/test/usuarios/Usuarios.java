@@ -20,7 +20,7 @@ public class Usuarios extends TestBase {
 	String perfil = "";
 	String nombreUsuario = "";
 	String email = "";
-	int indiceUser = 4;
+	int indiceUser = 6;
 
 	/**
 	 * Metodo que prueba que se agreguen correctamente los usuarios al sistema

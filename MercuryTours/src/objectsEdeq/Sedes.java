@@ -17,7 +17,7 @@ public class Sedes extends PageBase {
 	}
 
 	/**
-	 * Metodo que ingresa y graba los datos de una sede
+	 * Method that add y save the dates of one headquarters	
 	 * 
 	 * @param nombre
 	 * @param direccion
@@ -42,7 +42,7 @@ public class Sedes extends PageBase {
 	}
 
 	/**
-	 * Boton del menu principal
+	 * Button of menu main
 	 */
 	@FindBy(how = How.CLASS_NAME, using = "menuBtn")
 	private WebElement btnMenu;

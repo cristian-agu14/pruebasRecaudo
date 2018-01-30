@@ -30,7 +30,6 @@ public class BancosCrear extends PageBase {
 	 */
 	public boolean crearBancos(String nombreBanco, String codigo) throws InterruptedException {
 		login.loginCorrecto();
-		esperar(2);
 		clickButtonLink(btnAdministracion);
 		clickButtonLink(btnOpcionBancos);
 		//clickButtonLink(btnCrearNuevoBanco);
@@ -40,7 +39,6 @@ public class BancosCrear extends PageBase {
 		driver.findElement(By.id("NOMBRE")).sendKeys(nombreBanco);
 		cajaTextoCodigo.sendKeys(codigo);
 		clickButtonLink(btnGuardar);
-		esperar(1);
 		return(isElementPresentAndDisplay(mensajeConfirmacion));
 		//clickButtonLink(btnCrear);
 		//driver.findElement(By.xpath("//input[@value='Guardar']")).click();

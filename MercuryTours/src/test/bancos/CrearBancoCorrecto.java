@@ -1,6 +1,5 @@
 package test.bancos;
 
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,11 +15,14 @@ public class CrearBancoCorrecto extends TestBase {
 	static ExcelUtils exelDatosBancos;
 	private String nombreBanco = "";
 	private String codigo = "";
-	//private ArrayList<ExcelUtils> hoal = new ArrayList<>();
-
+	// private ArrayList<ExcelUtils> hoal = new ArrayList<>();
+	
+	/**
+	 *Metodo que prueba la creacion 
+	 */
 	@Test
 	public void crearBanco() {
-		int bancoExcel = 1;// indice de las colomnas con los nombres en excel
+		int bancoExcel = 4;// indice de las colomnas con los nombres en excel
 		try {
 
 			exelDatosBancos = new ExcelUtils("datosBancos.xlsx", ExcelType.XLSX);
@@ -37,7 +39,7 @@ public class CrearBancoCorrecto extends TestBase {
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
 			e.printStackTrace();
-		}	
+		}
 	}
 
 }

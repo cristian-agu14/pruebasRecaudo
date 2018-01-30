@@ -25,13 +25,15 @@ public class CrearCaja extends TestBase {
 	private String municipio = "";
 
 	/*
-	 * El id va desde 2 que es armenia, hasta 13 que es salento
+	 * El idExcelMunicipio va desde 2 que es armenia, hasta 13 que es salento
 	 */
-	int idExcelMunicipio = 10;
+	int idExcelMunicipio = 1;
 	String ultimaCajaIngresada = "";
 
 	/**
-	 * Metodo que prueba la creacion de varias cajas
+	 * Method that test the create of varias cajas, este metodo crea 16 cajas en
+	 * cada municipio, lo que cambia es el indice del municipio, si el municipio no
+	 * es Armenia se usa un fechero en el escritorio con el number de la caja
 	 */
 	@Test
 	private void crearCaja() {
@@ -53,7 +55,7 @@ public class CrearCaja extends TestBase {
 					aux = Integer.parseInt(numeroCaja);
 					aux = aux + 1;
 					caja.crearCaja(numeroCaja, municipio, "");
-					escribeFichero.guardar(aux+"");
+					escribeFichero.guardar(aux + "");
 
 				}
 				// ultimaCajaIngresada = numeroCaja;

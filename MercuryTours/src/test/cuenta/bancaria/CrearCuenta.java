@@ -22,7 +22,7 @@ public class CrearCuenta extends TestBase {
 	int indiceCuenta=1;
 
 	/**
-	 * metodo que prueba la accion de crear cuentas bancarias
+	 * Method that test the action of created bank account
 	 */
 	@Test
 	private void crearCuenta() {
@@ -47,12 +47,12 @@ public class CrearCuenta extends TestBase {
 	}
 
 	/**
-	 * Metodo que selecciona el tipo de cuenta
+	 * Method that selects the type of account
 	 * 
 	 * @param tipoCuenta2
-	 *            nombre del tipo de la cuenta 
-	 * @return true si es una cuenta corriente
-	 * @return false si es una cuenta de ahorros
+	 *            name of type of the account 
+	 * @return true if is one account current
+	 * @return false if is  one account of savings
 	 */
 	private boolean seleccionarCuenta(String tipoCuenta2) {
 		if (tipoCuenta2.equals("cte")) {

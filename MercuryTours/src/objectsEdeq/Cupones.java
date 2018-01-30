@@ -26,7 +26,6 @@ public class Cupones extends PageBase {
 	 */
 	public boolean crearCupon(String nit, String nombreEmpresa, String numeroReferencia, String valorSAC,
 			String codigoBarras, String valorCupon) {
-		
 		clickButtonLink(btnMenuPrincipal);
 		clickButtonLink(opcionPagoObligacioes);
 		sendText(nitCupon, nit);
@@ -40,8 +39,10 @@ public class Cupones extends PageBase {
 		return true;
 
 	}
-
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[1]/div/img")
+	
+	//@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[1]/div/img")
+	//@FindBy(how = How.CLASS_NAME, using="menuBtn")
+	@FindBy(how = How.CSS, using="html body div.container-fluid div.row div.menuBar div.menuBtn img")
 	private WebElement btnMenuPrincipal;
 
 	@FindBy(how = How.ID, using = "menu14")
@@ -58,7 +59,7 @@ public class Cupones extends PageBase {
 
 	@FindBy(how = How.ID, using = "Devuelta")
 	private WebElement cajaTextoValorSAC;
-
+	
 	@FindBy(how = How.ID, using = "CodigoBarrasCadena")
 	private WebElement cajaTextoCodigoBarras;
 
