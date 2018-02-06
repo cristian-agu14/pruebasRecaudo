@@ -60,7 +60,7 @@ public class ConveniosRecaudos extends TestBase {
 
 	@Test
 	public void ingresarConvenio() {
-		int indice = 3;
+		int indice = 1;
 		loginEdeqCorrecto.loginCorrecto();
 		try {
 			convenio = new Convenio(driver, "");
