@@ -3,7 +3,6 @@ package test.usuarios;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 import base.TestBase;
 import objectsEdeq.UsuariosCrear;
 import utils.ExcelUtils;
@@ -24,6 +23,8 @@ public class Usuarios extends TestBase {
 
 	/**
 	 * Metodo que prueba que se agreguen correctamente los usuarios al sistema
+	 * comprovando si el metodo del paquete objectsEdeq buscarUsuario retorne un
+	 * true
 	 */
 	@Test
 	private void crearUsuario() {
