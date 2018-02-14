@@ -24,7 +24,7 @@ public class Proveedor extends TestBase {
 
 	@Test
 	public void crearClienteRecauco() {
-		int indice = 3;
+		int indice = 1;
 		proveedoresRecaudo = new ProveedoresRecaudo(driver, pageFindFlight);
 		try {
 

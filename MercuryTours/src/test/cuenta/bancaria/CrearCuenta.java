@@ -19,7 +19,7 @@ public class CrearCuenta extends TestBase {
 	private String cuentaContable = "";
 	private String tipoCuenta = "";
 	private String banco = "";
-	int indiceCuenta=2;
+	int indiceCuenta=3;
 
 	/**
 	 * Method that test the action of created bank account
