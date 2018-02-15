@@ -12,17 +12,16 @@ public class Convenio extends PageBase {
 	public Convenio(WebDriver driver, String pageTitle) {
 		super(driver, pageTitle);
 	}
-
 	public boolean crearConvenioRecaudo(String numero, String nombre, String posInicioCodEmpresa,
 			String posFinCodempresa, String posInicioReferencia, String posFinReferencia, String posInicioValor,
 			String posFinValor, String posInicioFecha, String posfinFecha, String ip, String puerto, String ruta,
 			String usuario, String contrasena, String cliente, String codigoEmpresa) {
-
+		
 		clickButtonLink(btnMenu);
 		clickButtonLink(opcionRecaudo);
 		clickButtonLink(pestanaConvenios);
 		clickButtonLink(tipoConvenioCliente);
-		// selectDropdownValue(listaClientes, cliente);
+		//selectDropdownValue(listaClientes, cliente);
 		sendText(numeroConvenioCajaTexto, numero);
 		sendText(nombreConvenioCajaTexto, nombre);
 		sendText(posIncioCodEmpresaCajaTexto, posInicioCodEmpresa);
@@ -41,6 +40,8 @@ public class Convenio extends PageBase {
 		sendText(contrasenaCajaTexto, contrasena);
 		clickButtonLink(btnSubirLogoCajaTexto);
 		esperar(15);
+		
+		
 
 		return true;
 
@@ -57,8 +58,8 @@ public class Convenio extends PageBase {
 
 	@FindBy(how = How.ID, using = "cliente")
 	private WebElement tipoConvenioCliente;
-
-	@FindBy(how = How.ID, using = "clienteRecaudo")
+	
+	@FindBy(how = How.ID, using= "clienteRecaudo")
 	private WebElement listaClientes;
 
 	@FindBy(how = How.ID, using = "proveedor")
