@@ -26,7 +26,7 @@ public class Usuarios extends TestBase {
 	 * comprovando si el metodo del paquete objectsEdeq buscarUsuario retorne un
 	 * true
 	 */
-	@Test
+	@Test	
 	private void crearUsuario() {
 		usuariosCrear = new UsuariosCrear(driver, pageFindFlight);
 
