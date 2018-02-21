@@ -14,7 +14,7 @@ import test.autebtificacion.edeq.LoginEdeqCorrecto;
 public class BancosCrear extends PageBase {
 
 	private BancosCrearVentana2 bancosCrearVentana2;
-	private LoginEdeqCorrecto login= new LoginEdeqCorrecto();
+	
 
 	public BancosCrear(WebDriver driver, String pageTitle) {
 		super(driver, pageTitle);
@@ -29,7 +29,7 @@ public class BancosCrear extends PageBase {
 	 * @throws InterruptedException
 	 */
 	public boolean crearBancos(String nombreBanco, String codigo) throws InterruptedException {
-		login.loginCorrecto();
+
 		clickButtonLink(btnAdministracion);
 		clickButtonLink(btnOpcionBancos);
 		//clickButtonLink(btnCrearNuevoBanco);
@@ -184,8 +184,8 @@ public class BancosCrear extends PageBase {
 	
 	/**
 	 * Boton para guardar el nuevo banco
-	 */
-	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div/div[2]/fieldset/div/form/div/div[2]/div/div/input")
+	 */								   
+	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[2]/div[2]/fieldset/div/form/div/div/div/div[3]/input")
 	private WebElement btnGuardar;
 	
 	/**

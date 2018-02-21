@@ -12,18 +12,20 @@ public class Convenio extends PageBase {
 	public Convenio(WebDriver driver, String pageTitle) {
 		super(driver, pageTitle);
 	}
+
 	public boolean crearConvenioRecaudo(String numero, String nombre, String posInicioCodEmpresa,
 			String posFinCodempresa, String posInicioReferencia, String posFinReferencia, String posInicioValor,
 			String posFinValor, String posInicioFecha, String posfinFecha, String ip, String puerto, String ruta,
 			String usuario, String contrasena, String cliente, String codigoEmpresa) {
-		
+
 		clickButtonLink(btnMenu);
 		clickButtonLink(opcionRecaudo);
 		clickButtonLink(pestanaConvenios);
 		clickButtonLink(tipoConvenioCliente);
-		//selectDropdownValue(listaClientes, cliente);
+		// selectDropdownValue(listaClientes, cliente);
 		sendText(numeroConvenioCajaTexto, numero);
 		sendText(nombreConvenioCajaTexto, nombre);
+		clickButtonLink(contenedorCodigoBarras);
 		sendText(posIncioCodEmpresaCajaTexto, posInicioCodEmpresa);
 		sendText(posFinCodEmpresaCajaTexto, posFinCodempresa);
 		sendText(posInicioReferenciaCajaTexto, posInicioReferencia);
@@ -33,18 +35,16 @@ public class Convenio extends PageBase {
 		sendText(posinicioFechaCajaTexto, posInicioFecha);
 		sendText(posFinalFechaCajaTexto, posfinFecha);
 		sendText(codigoEmpresaCajaTexto, codigoEmpresa);
+		clickButtonLink(contenedorFTP);
 		sendText(ipCajaTexto, ip);
 		sendText(puertoCajaTexto, puerto);
 		sendText(rutaCajaTexto, ruta);
 		sendText(usuarioCajaTexto, usuario);
 		sendText(contrasenaCajaTexto, contrasena);
+		esperar(8);
 		clickButtonLink(btnSubirLogoCajaTexto);
-		esperar(15);
-		
-		
 
 		return true;
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//html/body/div[2]/div[2]/div[1]/div/img")
@@ -58,8 +58,8 @@ public class Convenio extends PageBase {
 
 	@FindBy(how = How.ID, using = "cliente")
 	private WebElement tipoConvenioCliente;
-	
-	@FindBy(how = How.ID, using= "clienteRecaudo")
+
+	@FindBy(how = How.ID, using = "clienteRecaudo")
 	private WebElement listaClientes;
 
 	@FindBy(how = How.ID, using = "proveedor")
@@ -122,4 +122,10 @@ public class Convenio extends PageBase {
 	 */
 	@FindBy(how = How.ID, using = "grabar")
 	private WebElement btnGrabarConvenioRecaudo;
+
+	@FindBy(how = How.ID, using = "1")
+	private WebElement contenedorCodigoBarras;
+
+	@FindBy(how = How.ID, using = "4")
+	private WebElement contenedorFTP;
 }

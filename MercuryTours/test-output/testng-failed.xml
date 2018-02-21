@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="test.convenios.ConveniosRecaudos">
+      <class name="test.cupones.Cupon">
         <methods>
-          <include name="ingresarConvenio"/>
+          <include name="crearCupon"/>
           <include name="initializeTestBaseSetup"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- test.convenios.ConveniosRecaudos -->
+      </class> <!-- test.cupones.Cupon -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

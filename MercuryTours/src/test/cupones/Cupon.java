@@ -52,6 +52,7 @@ public class Cupon extends TestBase {
 			cupones.crearCupon(nitEmpresa, nombreEmpresa, numeroReferencia, valorSAC, codigoBarras, valorCupon);
 			realizarPagos.realizarPagoEfectivo(valorCupon);
 			
+			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
 			e.printStackTrace();

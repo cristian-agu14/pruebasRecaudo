@@ -33,6 +33,7 @@ public class PagoObligaciones extends PageBase {
 		System.out.println("--------------->" + valorCupon + "<---------------------");
 		sendText(cajaTextoValorDesembolso, valorCupon);
 		clickButtonLink(btnGuardarDesembolso);
+		esperar(10);
 		//devuelta = getText(valorDevuelta);
 		
 		// if (devuelta.equals("0")) {
