@@ -1,4 +1,8 @@
+/pageObjects/
 /test/
+/base/
 /cliente/
-/datapool/
 /objectsEdeq/
+/proveedores/
+/scriptSencillo/
+/utils/

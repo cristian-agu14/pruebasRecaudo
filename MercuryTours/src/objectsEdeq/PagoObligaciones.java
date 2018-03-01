@@ -22,7 +22,7 @@ public class PagoObligaciones extends PageBase {
 	 * @return false si el pago no es el correcto (devuelta != 0)
 	 */
 	public boolean pagarSoloEfectivo(String valorCupon) {
-
+		
 		
 		//clickButtonLink(btnMenu);
 		//clickButtonLink(opcionPagos);
@@ -41,8 +41,7 @@ public class PagoObligaciones extends PageBase {
 		// } else {
 		// return false;
 		// }
- 		return true;
-
+ 		return true; 		
 	}
 
 	/**

@@ -61,7 +61,7 @@ public class ConveniosRecaudos extends TestBase {
 	@Test
 	public void ingresarConvenio() {
 
-		int indice = 1;
+		int indice = 3;
 
 		loginEdeqCorrecto.loginCorrecto();
 		try {

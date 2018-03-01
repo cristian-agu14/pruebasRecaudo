@@ -19,7 +19,8 @@ public class Usuarios extends TestBase {
 	String perfil = "";
 	String nombreUsuario = "";
 	String email = "";
-	int indiceUser = 5;
+	// hay datos en el excel hasta 9
+	int indiceUser = 4;
 
 	/**
 	 * Metodo que prueba que se agreguen correctamente los usuarios al sistema
@@ -31,7 +32,7 @@ public class Usuarios extends TestBase {
 		usuariosCrear = new UsuariosCrear(driver, pageFindFlight);
 
 		try {
-			// hay datos en el excel hasta 9
+			
 			exelDatosUsuarios = new ExcelUtils("usuarios.xlsx", ExcelType.XLSX);
 			id = exelDatosUsuarios.getCellData(1, indiceUser);
 			nombre = exelDatosUsuarios.getCellData(2, indiceUser);

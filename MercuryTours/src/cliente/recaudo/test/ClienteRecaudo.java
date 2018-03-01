@@ -21,7 +21,7 @@ public class ClienteRecaudo extends TestBase {
 	private String direccion = "";
 
 	//El indiceCuenta puede ir hasta 12 
-	int indiceCuenta = 1;
+	int indiceCuenta = 3;
 	
 	/**
 	 * Metodo que prueba la creacion de los proveedores de recaudos
